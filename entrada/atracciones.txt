@@ -1,0 +1,11 @@
+Moria,10,2,6,AVENTURA
+Mimimimi,10,8,10,AVENTURA
+Mina Tirith,5,2.5,25,   PAISAJE
+Mordor, 25, 3, 4, AVENTURA
+Abismo de Helm,5,4,15,PAISAJE
+Erebor,12,3,32,PAISAJE
+Bosque Negro,2,4,2,AVENTURA
+La Comarca,3,6.5,150, DEGUSTACION
+Lothlorien,35,1, 30,DEGUSTACION 
+Mimumi,10,3,10,DEGUSTACION
+Atraccion Paisaje 3,10,10,10,PAISAJE

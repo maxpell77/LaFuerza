@@ -1,0 +1,4 @@
+PORCENTUAL, AVENTURA   , Pack Aventura 1   , Bosque negro y Mordor con un 20% de descuento si se compran ambas., 0.20 ,Bosque Negro;Mordor
+ABSOLUTA, DEGUSTACION, Pack Degustacion 1, Lothlórien y la Comarca a 36 monedas., 36, Lothlorien;La Comarca
+AXB, PAISAJE   , Pack Paisajes 1   , Comprando Minas Tirith y el Abismo de Helm Erebor es gratis., Erebor,Erebor;Mina Tirith;Abismo de Helm
+ABSOLUTA, DEGUSTACION, Pack Degustacion 2, Lothlórien y Mimumi a 40 monedas., 40, Lothlorien;Mimumi

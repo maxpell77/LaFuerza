@@ -1,0 +1,7 @@
+Eowyn, AVENTURA, 100, 20
+Ootro, AVENTURA, 100, 25
+Otromas, AVENTURA, 100, 25
+YOtromas, AVENTURA, 100, 25
+Gandalf, PAISAJE, 100, 100
+Sam, DEGUSTACION, 36, 8
+Galadriel, PAISAJE, 120, 6

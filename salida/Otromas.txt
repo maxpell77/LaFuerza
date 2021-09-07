@@ -1,0 +1,31 @@
+Muchas gracias Otromas por tu compra.
+
+Tipo de atraccion preferida: AVENTURA
+Saldo Inicial: 100 monedas de oro
+Tiempo Disponible Inicial: 25 horas
+
+Estas son las propuestas contratadas: 
+
+- Atraccion Mordor
+	Costo: 25 monedas de oro
+	Tiempo: 3 horas
+
+- Atraccion Mimimimi
+	Costo: 10 monedas de oro
+	Tiempo: 8 horas
+
+- Atraccion Moria
+	Costo: 10 monedas de oro
+	Tiempo: 2 horas
+
+- Pack Degustacion 2: Lothlórien y Mimumi a 40 monedas.
+	Costo: 40 monedas de oro
+	Tiempo: 4 horas
+
+- Atraccion Erebor
+	Costo: 12 monedas de oro
+	Tiempo: 3 horas
+
+
+Total a pagar: 97 monedas de oro (saldo disponible: 3 monedas de oro).
+Tiempo utilizado 20 horas (tiempo disponible 5 horas).

@@ -1,0 +1,31 @@
+Muchas gracias Ootro por tu compra.
+
+Tipo de atraccion preferida: AVENTURA
+Saldo Inicial: 100 monedas de oro
+Tiempo Disponible Inicial: 25 horas
+
+Estas son las propuestas contratadas: 
+
+- Pack Aventura 1: Bosque negro y Mordor con un 20% de descuento si se compran ambas.
+	Costo: 22 monedas de oro
+	Tiempo: 7 horas
+
+- Atraccion Mimimimi
+	Costo: 10 monedas de oro
+	Tiempo: 8 horas
+
+- Atraccion Moria
+	Costo: 10 monedas de oro
+	Tiempo: 2 horas
+
+- Pack Degustacion 2: Lothlórien y Mimumi a 40 monedas.
+	Costo: 40 monedas de oro
+	Tiempo: 4 horas
+
+- Atraccion Erebor
+	Costo: 12 monedas de oro
+	Tiempo: 3 horas
+
+
+Total a pagar: 94 monedas de oro (saldo disponible: 6 monedas de oro).
+Tiempo utilizado 24 horas (tiempo disponible 1 hora).

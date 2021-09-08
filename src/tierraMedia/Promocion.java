@@ -38,9 +38,9 @@ public abstract class Promocion extends Propuesta {
 
 	public abstract void setCosto();
 
-	public int getCostoTotalAtracciones() {
+	protected int getCostoTotalAtracciones(LinkedList<Atraccion> listadoAtracciones) {
 		int costoTotal = 0;
-		for (Atraccion atraccion : atraccionesIncluidas) {
+		for (Atraccion atraccion : listadoAtracciones) {
 			costoTotal += atraccion.getCosto();
 		}
 		return costoTotal;
@@ -54,13 +54,5 @@ public abstract class Promocion extends Propuesta {
 		}
 	}
 
-//	@Override
-//	public int getCupoDisponible() {
-//		LinkedList<Integer> cupos = new LinkedList<Integer>();
-//		for (Atraccion atraccion : atraccionesIncluidas) {
-//			cupos.add(atraccion.getCupoDisponible());
-//		}
-//		return Collections.min(cupos);
-//	}
 
 }

@@ -83,8 +83,9 @@ public class TierraMedia {
 	}
 
 	public void buscarPropuestasASugerir() throws IOException {
+		LectorYModificadorArchivos.abrirEscanner();
+		
 		for (Usuario usuario : usuarios) {
-
 			TipoAtraccion tipoAtraccionPreferida = usuario.getTipoAtraccionPreferida();
 			List<Propuesta> propuestasOrdenadas = ordenarPropuestas(tipoAtraccionPreferida);
 			int primerPropuestaAusuario = 0;
@@ -104,7 +105,7 @@ public class TierraMedia {
 		LectorYModificadorArchivos.cerrarEscanner();
 	}
 
-	public List<Propuesta> ordenarPropuestas(TipoAtraccion tipoAtraccion) {
+	private List<Propuesta> ordenarPropuestas(TipoAtraccion tipoAtraccion) {
 
 		List<Propuesta> propuestasFiltradas = new ArrayList<Propuesta>();
 		List<Propuesta> restoPropuestas = new ArrayList<Propuesta>();
@@ -156,8 +157,8 @@ public class TierraMedia {
 		return null;
 	}
 
-	public List<Propuesta> getPropuestas() {
-		return propuestas;
-	}
+//	public List<Propuesta> getPropuestas() {
+//		return propuestas;
+//	}
 
 }

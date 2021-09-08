@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public abstract class LectorYModificadorArchivos {
 
-	private static Scanner in;
+	private static Scanner IN;
 
 	public static LinkedList<String> leerArchivo(String archivo) {
 		LinkedList<String> datos = new LinkedList<String>();
@@ -32,18 +32,19 @@ public abstract class LectorYModificadorArchivos {
 		return datos;
 	}
 
+	public static void abrirEscanner() {
+		IN = new Scanner(System.in);
+	}
+
 	public static void cerrarEscanner() {
-		in.close();
+		IN.close();
 	}
 
 	public static boolean usuarioAceptaPropuesta(Usuario usuario, Propuesta propuesta, int propuestaMostrada) {
 
-		in = new Scanner(System.in);
-		String entradaConsola;
-
 		if (propuestaMostrada == 1) {
 			System.out.println("---------------------------------------------------\n");
-			System.out.println("¡Bienvenido " + usuario.getNombre() + "!\n");
+			System.out.println("¡Bienvenid@ " + usuario.getNombre() + "!\n");
 			System.out.println("Preferencia: " + usuario.getTipoAtraccionPreferida());
 		}
 
@@ -56,24 +57,28 @@ public abstract class LectorYModificadorArchivos {
 		System.out.println("¿Desea adquirirla? ");
 		System.out.println("(por favor responder con la letra 'S' en caso afirmativo, o 'N' en caso negativo.)");
 
-		entradaConsola = in.nextLine().toUpperCase();
-		while (!entradaConsola.equals("S") && !entradaConsola.equals("N")) {
-			System.out.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
-			entradaConsola = in.nextLine().toUpperCase();
-		}
-		System.err.println(entradaConsola);
-//		in.close();
+		String entradaConsola = esperarRespuestaUsuario();
 
 		if (entradaConsola.equals("S")) {
 			System.out.println("Felicitaciones! Ha adquirido la propuesta " + propuesta.getNombre() + "\n");
-
 			return true;
 		} else {
 			System.out.println("\nHa rechazado la propuesta " + propuesta.getNombre() + ".\n");
 			return false;
 		}
 
-		// CERRAR ESCANER?? ERROR?
+	}
+
+	private static String esperarRespuestaUsuario() {
+		
+		String entradaConsola = IN.nextLine().toUpperCase();
+		while (!entradaConsola.equals("S") && !entradaConsola.equals("N")) {
+			System.out.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
+			entradaConsola = IN.nextLine().toUpperCase();
+		}
+		System.err.println(entradaConsola);
+
+		return entradaConsola;
 
 	}
 

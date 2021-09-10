@@ -1,6 +1,5 @@
 package tierraMedia;
 
-
 import java.util.LinkedList;
 
 public abstract class Promocion extends Propuesta {
@@ -54,5 +53,12 @@ public abstract class Promocion extends Propuesta {
 		}
 	}
 
+	@Override
+	public boolean hayCupoDisponible() {
+		for (Atraccion atraccion : atraccionesIncluidas) {
+			hayCupoDisponible &= atraccion.hayCupoDisponible();
+		}
+		return hayCupoDisponible;
+	}
 
 }

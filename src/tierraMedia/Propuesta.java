@@ -52,8 +52,6 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 
 	public abstract void actualizarCupoDisponible();
 	
-//	public abstract int  getCupoDisponible();
-	
 	public abstract LinkedList<Atraccion>  getAtraccionesIncluidas();
 
 }

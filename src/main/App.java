@@ -3,7 +3,7 @@ package main;
 import java.io.IOException;
 import java.util.List;
 
-import tierraMedia.LectorYModificadorArchivos;
+import tierraMedia.LectorArchivos;
 import tierraMedia.TierraMedia;
 
 public class App {
@@ -12,15 +12,15 @@ public class App {
 
 		TierraMedia tierraMedia = new TierraMedia();
 
-		List<String> atracciones = LectorYModificadorArchivos.leerArchivo("entrada/atracciones.txt");
-		List<String> promociones = LectorYModificadorArchivos.leerArchivo("entrada/promociones.txt");
-		List<String> usuarios = LectorYModificadorArchivos.leerArchivo("entrada/usuarios.txt");
+		List<String> atracciones = LectorArchivos.leerArchivo("entrada/atracciones.txt");
+		List<String> promociones = LectorArchivos.leerArchivo("entrada/promociones.txt");
+		List<String> usuarios = LectorArchivos.leerArchivo("entrada/usuarios.txt");
 
 		tierraMedia.agregarAtracciones(atracciones);
 		tierraMedia.agregarPromociones(promociones);
 		tierraMedia.agregarUsuarios(usuarios);
 
-		tierraMedia.buscarPropuestasASugerir();
+		tierraMedia.sugerirPropuestasAusuarios();
 
 	}
 

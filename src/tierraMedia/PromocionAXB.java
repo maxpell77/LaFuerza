@@ -13,16 +13,8 @@ public class PromocionAXB extends Promocion {
 
 	@Override
 	public void setCosto() {
-		this.costo = super.getCostoTotalAtracciones(atraccionesIncluidas) - getCostoTotalAtracciones(atraccionesGratis);
+		costo = getCostoTotalAtracciones(atraccionesIncluidas) - getCostoTotalAtracciones(atraccionesGratis);
 	}
 
-//	private int getCostoAtraccionesGratis() {
-//		int costoAtraccionesGratis = 0;
-//		for (Atraccion atraccion : atraccionesGratis) {
-//			costoAtraccionesGratis += atraccion.getCosto();
-//		}
-//		return costoAtraccionesGratis;
-//
-//	}
 
 }

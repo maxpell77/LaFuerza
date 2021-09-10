@@ -10,10 +10,10 @@ public class PromoAbsoluta extends Promocion {
 		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas);
 		this.costoPromo = costoPromo;
 	}
-	
+
 	@Override
 	public void setCosto() {
-		this.costo = costoPromo;
+		costo = costoPromo;
 	}
-	
+
 }

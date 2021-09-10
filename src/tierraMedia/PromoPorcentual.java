@@ -13,7 +13,7 @@ public class PromoPorcentual extends Promocion {
 
 	@Override
 	public void setCosto() {
-		this.costo = (int) Math.round(super.getCostoTotalAtracciones(atraccionesIncluidas) * (1 - this.porcentajeDescuento));
+		costo = (int) Math.round(getCostoTotalAtracciones(atraccionesIncluidas) * (1 - this.porcentajeDescuento));
 	}
 
 }

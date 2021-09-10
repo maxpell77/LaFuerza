@@ -18,9 +18,9 @@ public class TierraMedia {
 			int costo = Integer.parseInt(datosAtracciones[1].trim());
 			double tiempo = Double.parseDouble(datosAtracciones[2].trim());
 			int cupo = Integer.parseInt(datosAtracciones[3].trim());
-			TipoAtraccion tripoAtraccion = TipoAtraccion.valueOf(datosAtracciones[4].trim());
+			TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(datosAtracciones[4].trim());
 
-			Atraccion nuevaAtraccion = new Atraccion(costo, tiempo, tripoAtraccion, cupo, nombre);
+			Atraccion nuevaAtraccion = new Atraccion(costo, tiempo, tipoAtraccion, cupo, nombre);
 			propuestas.add(nuevaAtraccion);
 
 		}
@@ -32,7 +32,7 @@ public class TierraMedia {
 		for (String promocion : promocionesAIngresar) {
 			String[] datosPromociones = promocion.split(",");
 			TipoPromocion tipoPromocion = TipoPromocion.valueOf(datosPromociones[0].trim());
-			TipoAtraccion tripoAtraccion = TipoAtraccion.valueOf(datosPromociones[1].trim());
+			TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(datosPromociones[1].trim());
 			String nombre = datosPromociones[2].trim();
 			String descripcion = datosPromociones[3].trim();
 
@@ -45,19 +45,19 @@ public class TierraMedia {
 			Promocion nuevaPromocion;
 			if (tipoPromocion == TipoPromocion.PORCENTUAL) {
 				Double porcentajeDescuento = Double.parseDouble(datosPromociones[4].trim());
-				nuevaPromocion = new PromoPorcentual(tripoAtraccion, nombre, descripcion, atracciones,
+				nuevaPromocion = new PromoPorcentual(tipoAtraccion, nombre, descripcion, atracciones,
 						porcentajeDescuento);
 			} else if (tipoPromocion == TipoPromocion.ABSOLUTA) {
 				int costoTotal = Integer.parseInt(datosPromociones[4].trim());
-				nuevaPromocion = new PromoAbsoluta(tripoAtraccion, nombre, descripcion, atracciones, costoTotal);
-			} else {		
+				nuevaPromocion = new PromoAbsoluta(tipoAtraccion, nombre, descripcion, atracciones, costoTotal);
+			} else {
 				LinkedList<Atraccion> atraccionesGratis = new LinkedList<Atraccion>();
 				String[] atraccionesGratsString = datosPromociones[4].split(";");
 				for (int i = 0; i < atraccionesGratsString.length; i++) {
 					atraccionesGratis.add(this.obtenerAtraccionPorNombre(atraccionesGratsString[i].trim()));
 				}
-				
-				nuevaPromocion = new PromocionAXB(tripoAtraccion, nombre, descripcion, atracciones, atraccionesGratis);
+
+				nuevaPromocion = new PromocionAXB(tipoAtraccion, nombre, descripcion, atracciones, atraccionesGratis);
 			}
 			propuestas.add(nuevaPromocion);
 			nuevaPromocion.setCosto();
@@ -71,38 +71,36 @@ public class TierraMedia {
 		for (String usuario : usuariosAIngresar) {
 			String[] datosUsuarios = usuario.split(",");
 			String nombre = datosUsuarios[0].trim();
-			TipoAtraccion tripoAtraccion = TipoAtraccion.valueOf(datosUsuarios[1].trim());
+			TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(datosUsuarios[1].trim());
 			int costo = Integer.parseInt(datosUsuarios[2].trim());
 			double tiempo = Double.parseDouble(datosUsuarios[3].trim());
 
-			Usuario nuevoUsuario = new Usuario(nombre, tripoAtraccion, costo, tiempo);
+			Usuario nuevoUsuario = new Usuario(nombre, tipoAtraccion, costo, tiempo);
 			usuarios.add(nuevoUsuario);
 
 		}
 
 	}
 
-	public void buscarPropuestasASugerir() throws IOException {
-		LectorYModificadorArchivos.abrirEscanner();
-		
+	public void sugerirPropuestasAusuarios() throws IOException {
+		LectorConsola.abrirEscanner();
+
 		for (Usuario usuario : usuarios) {
-			TipoAtraccion tipoAtraccionPreferida = usuario.getTipoAtraccionPreferida();
-			List<Propuesta> propuestasOrdenadas = ordenarPropuestas(tipoAtraccionPreferida);
-			int primerPropuestaAusuario = 0;
+			List<Propuesta> propuestasOrdenadas = ordenarPropuestas(usuario.getTipoAtraccionPreferida());
+			usuario.mostrarBienvenida();
 
 			for (Propuesta propuesta : propuestasOrdenadas) {
-				if (propuesta.hayCupoDisponible() && usuarioPuedeAdquirirPropuesta(usuario, propuesta)) {
-					primerPropuestaAusuario++;
-					if (LectorYModificadorArchivos.usuarioAceptaPropuesta(usuario, propuesta,
-							primerPropuestaAusuario)) {
+				if (propuesta.hayCupoDisponible() && usuario.puedeAdquirirPropuesta(propuesta)) {
+					usuario.ofrecerPropuesta(propuesta);
+					if (usuario.aceptaPropuesta(propuesta)) {
 						usuario.agregarPropuestaAceptada(propuesta);
 						propuesta.actualizarCupoDisponible();
 					}
 				}
 			}
-			LectorYModificadorArchivos.escribirIntinerario(usuario);
+			usuario.escribirIntinerario();
 		}
-		LectorYModificadorArchivos.cerrarEscanner();
+		LectorConsola.cerrarEscanner();
 	}
 
 	private List<Propuesta> ordenarPropuestas(TipoAtraccion tipoAtraccion) {
@@ -120,32 +118,9 @@ public class TierraMedia {
 
 		Collections.sort(propuestasFiltradas);
 		Collections.sort(restoPropuestas);
-
 		propuestasFiltradas.addAll(restoPropuestas);
 
 		return propuestasFiltradas;
-	}
-
-	private boolean usuarioPuedeAdquirirPropuesta(Usuario usuario, Propuesta propuesta) {
-		return usuarioPuedePagar(usuario, propuesta) && usuarioTieneTiempo(usuario, propuesta)
-				&& atraccionNoIncluida(usuario, propuesta);
-	}
-
-	private boolean usuarioPuedePagar(Usuario usuario, Propuesta propuesta) {
-		return (usuario.getPresupuestoDisponible() >= propuesta.getCosto());
-	}
-
-	private boolean usuarioTieneTiempo(Usuario usuario, Propuesta propuesta) {
-		return (usuario.getTiempoDisponible() >= propuesta.getTiempoUtilizado());
-	}
-
-	private boolean atraccionNoIncluida(Usuario usuario, Propuesta propuesta) {
-		boolean atraccionNoInculida = true;
-		for (Atraccion atraccionContratada : usuario.getAtraccionesContratadas()) {
-			atraccionNoInculida &= !propuesta.getAtraccionesIncluidas().contains(atraccionContratada);
-
-		}
-		return atraccionNoInculida;
 	}
 
 	private Atraccion obtenerAtraccionPorNombre(String nombre) {
@@ -156,9 +131,13 @@ public class TierraMedia {
 		}
 		return null;
 	}
-
-//	public List<Propuesta> getPropuestas() {
-//		return propuestas;
-//	}
+	
+	public LinkedList<Usuario> getUsuarios(){
+		return usuarios;
+	}
+	
+	public LinkedList<Propuesta> getPropuestas(){
+		return propuestas;
+	}
 
 }

@@ -1,8 +1,19 @@
-Muchas gracias Galadriel por participar.
+Muchas gracias Galadriel por tu compra.
 
 Tipo de atraccion preferida: PAISAJE
 Saldo Inicial: 120 monedas de oro
 Tiempo Disponible Inicial: 6 horas
 
-Lamentablemente no ha adquirido ninguna propuesta.
+Estas son las propuestas contratadas: 
 
+- Atraccion Erebor
+	Costo: 12 monedas de oro
+	Tiempo: 3 horas
+
+- Atraccion Mina Tirith
+	Costo: 5 monedas de oro
+	Tiempo: 2 horas con 30 minutos
+
+
+Total a pagar: 17 monedas de oro (saldo disponible: 103 monedas de oro).
+Tiempo utilizado 5 horas con 30 minutos (tiempo disponible 30 minutos).

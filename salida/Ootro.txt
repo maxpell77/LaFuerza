@@ -14,6 +14,18 @@ Estas son las propuestas contratadas:
 	Costo: 10 monedas de oro
 	Tiempo: 8 horas
 
+- Atraccion Moria
+	Costo: 10 monedas de oro
+	Tiempo: 2 horas
 
-Total a pagar: 32 monedas de oro (saldo disponible: 68 monedas de oro).
-Tiempo utilizado 15 horas (tiempo disponible 10 horas).
+- Pack Degustacion 2: Lothlórien y Mimumi a 40 monedas.
+	Costo: 40 monedas de oro
+	Tiempo: 4 horas
+
+- Atraccion Erebor
+	Costo: 12 monedas de oro
+	Tiempo: 3 horas
+
+
+Total a pagar: 94 monedas de oro (saldo disponible: 6 monedas de oro).
+Tiempo utilizado 24 horas (tiempo disponible 1 hora).

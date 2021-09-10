@@ -26,11 +26,6 @@ public class Atraccion extends Propuesta {
 				+ ModificadorFormatoHora.obtenerHoraConFormato(tiempoTotal) + "\n";
 	}
 
-//	@Override
-//	public int getCupoDisponible() {
-//		return cupoDisponible;
-//	}
-
 	public LinkedList<Atraccion> getAtraccionesIncluidas() {
 		LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 		atraccionesIncluidas.add(this);

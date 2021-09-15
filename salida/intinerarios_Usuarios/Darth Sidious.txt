@@ -6,25 +6,20 @@ Tiempo Disponible Inicial: 8 horas
 
 Estas son las propuestas contratadas: 
 
-- Atracción: El Imperio contaataca
+- Pack Oscuro 2: El ataque de los Clones y El Imperio contaataca a 21 créditos galácticos.
+
 	Tipo de Atracción: Lado Oscuro
-	Costo: 14 créditos galácticos
-	Duración de la Atracción: 3 horas
+	Costo: 21 créditos galácticos
+	Duración Total: 5 horas con 30 minutos
 
 
-- Atracción: El ataque de los Clones
-	Tipo de Atracción: Lado Oscuro
-	Costo: 11 créditos galácticos
-	Duración de la Atracción: 2 horas con 30 minutos
-
-
-- Atracción: El ascenso de Skywalker
+- Atracción: El despertar de la Fuerza
 	Tipo de Atracción: Lado Luminoso
-	Costo: 8 créditos galácticos
+	Costo: 10 créditos galácticos
 	Duración de la Atracción: 2 horas
 
 
-Total a pagar: 33 créditos galácticos (saldo disponible: 10 créditos galácticos).
+Total a pagar: 31 créditos galácticos (saldo disponible: 12 créditos galácticos).
 Tiempo utilizado 7 horas con 30 minutos (tiempo disponible 30 minutos).
 
 ¡Que la Fuerza te acompañe!

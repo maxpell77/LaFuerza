@@ -33,7 +33,7 @@ public abstract class GeneradorIntinerarioUsuario {
 					+ ModificadorFormatoHora.obtenerHoraConFormato(usuario.getTiempoDisponible()) + ").\n\n";
 
 		}
-		
+
 		mensaje += "¡Que la Fuerza te acompañe!";
 
 		return mensaje;

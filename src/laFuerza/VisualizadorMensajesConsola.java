@@ -21,26 +21,27 @@ public abstract class VisualizadorMensajesConsola {
 		mensaje += "(por favor responder con la letra 'S' en caso afirmativo, o 'N' en caso negativo.)";
 		System.out.println(mensaje);
 	}
-	
-	public static void  mostrarFinlizacionConCompra(Usuario usuario) {
-		String mensaje = "";	
+
+	public static void mostrarFinlizacionConCompra(Usuario usuario) {
+		String mensaje = "";
 		mensaje += "Muchas gracias " + usuario.getNombre() + " por tu compra.\n\n";
-		if(usuario.getPresupuestoDisponible()>0) {
-			mensaje += "Tu saldo final es de "+ usuario.getPresupuestoDisponible()+ " créditos galácticos.\n";
+		if (usuario.getPresupuestoDisponible() > 0) {
+			mensaje += "Tu saldo final es de " + usuario.getPresupuestoDisponible() + " créditos galácticos.\n";
 		} else {
 			mensaje += "No tienes saldo disponible.\n";
 		}
-		if(usuario.getTiempoDisponible() >0) {
-			mensaje += "Tienes disponible "+ ModificadorFormatoHora.obtenerHoraConFormato(usuario.getTiempoDisponible())+ ".\n\n";
+		if (usuario.getTiempoDisponible() > 0) {
+			mensaje += "Tienes disponible "
+					+ ModificadorFormatoHora.obtenerHoraConFormato(usuario.getTiempoDisponible()) + ".\n\n";
 		} else {
 			mensaje += "No tienes más tiempo disponible.\n\n";
 		}
-		
+
 		saludoFinal(mensaje);
 	}
-	
-	public static void  mostrarFinlizacionSinCompra(Usuario usuario) {
-		String mensaje = "";	
+
+	public static void mostrarFinlizacionSinCompra(Usuario usuario) {
+		String mensaje = "";
 		mensaje += "Muchas gracias " + usuario.getNombre() + " por tu participar.\n\n";
 		saludoFinal(mensaje);
 	}
@@ -51,15 +52,13 @@ public abstract class VisualizadorMensajesConsola {
 		mensaje += "¡Que la Fuerza te acompañe!\n\n";
 		System.out.println(mensaje);
 	}
-	
-	
-	public static void  confirmaCompraPropuesta(Propuesta propuesta) {
+
+	public static void confirmaCompraPropuesta(Propuesta propuesta) {
 		System.out.println("¡Felicitaciones! Ha adquirido la propuesta '" + propuesta.getNombre() + "'\n");
 	}
-	
-	public static void  confirmaRechazoPropuesta(Propuesta propuesta) {
+
+	public static void confirmaRechazoPropuesta(Propuesta propuesta) {
 		System.out.println("\nHa rechazado la propuesta " + propuesta.getNombre() + ".\n");
 	}
-	
 
 }

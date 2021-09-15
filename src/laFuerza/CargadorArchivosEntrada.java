@@ -61,8 +61,6 @@ public abstract class CargadorArchivosEntrada {
 
 		}
 	}
-	
-
 
 	public static void agregarUsuarios(List<String> usuariosAIngresar) {
 

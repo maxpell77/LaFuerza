@@ -41,7 +41,7 @@ public class GeneradorIntinerarioUsuarioTest {
 		EscritorArchivosSalida.escribirArchivos("test/salida/u1_Real.txt", mensaje);
 		assertEquals(-1, compararArchivosLineaporLinea("test/salida/u1_Esperado.txt", "test/salida/u1_Real.txt"));
 	}
-	
+
 	@Test
 	public void resumenIntinerarioCompraAtraccionTest() throws IOException {
 		usC100T30.agregarPropuestaAceptada(atC100T10);
@@ -49,7 +49,7 @@ public class GeneradorIntinerarioUsuarioTest {
 		EscritorArchivosSalida.escribirArchivos("test/salida/u2_Real.txt", mensaje);
 		assertEquals(-1, compararArchivosLineaporLinea("test/salida/u2_Esperado.txt", "test/salida/u2_Real.txt"));
 	}
-	
+
 	@Test
 	public void resumenIntinerarioCompraPromocionTest() throws IOException {
 		usC200T20.agregarPropuestaAceptada(prC150T15);

@@ -6,25 +6,14 @@ Tiempo Disponible Inicial: 6 horas
 
 Estas son las propuestas contratadas: 
 
-- Atracción: Naboo
+- Pack Gris 1: Tatooine gratis comprando Naboo y Endor.
+
 	Tipo de Atracción: Lado Gris
-	Costo: 7 créditos galácticos
-	Duración de la Atracción: 1 hora con 30 minutos
+	Costo: 12 créditos galácticos
+	Duración Total: 4 horas con 30 minutos
 
 
-- Atracción: Endor
-	Tipo de Atracción: Lado Gris
-	Costo: 5 créditos galácticos
-	Duración de la Atracción: 2 horas
-
-
-- Atracción: El ataque de los Clones
-	Tipo de Atracción: Lado Oscuro
-	Costo: 11 créditos galácticos
-	Duración de la Atracción: 2 horas con 30 minutos
-
-
-Total a pagar: 23 créditos galácticos (saldo disponible: 5 créditos galácticos).
-Tiempo utilizado 6 horas (tiempo disponible 0 horas).
+Total a pagar: 12 créditos galácticos (saldo disponible: 16 créditos galácticos).
+Tiempo utilizado 4 horas con 30 minutos (tiempo disponible 1 hora con 30 minutos).
 
 ¡Que la Fuerza te acompañe!

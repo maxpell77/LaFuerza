@@ -1,9 +1,30 @@
-Muchas gracias Obi-Wan Kenobi por participar.
+¡Muchas gracias Obi-Wan Kenobi por tu compra!
 
 Tipo de atracción preferida: Lado Luminoso
 Saldo Inicial: 30 créditos galácticos
 Tiempo Disponible Inicial: 6 horas
 
-Lamentablemente no ha adquirido ninguna propuesta.
+Estas son las propuestas contratadas: 
+
+- Atracción: El regreso del Jedi
+	Tipo de Atracción: Lado Luminoso
+	Costo: 7 créditos galácticos
+	Duración de la Atracción: 2 horas
+
+
+- Atracción: Una nueva Esperanza
+	Tipo de Atracción: Lado Luminoso
+	Costo: 6 créditos galácticos
+	Duración de la Atracción: 3 horas
+
+
+- Atracción: Tatooine
+	Tipo de Atracción: Lado Gris
+	Costo: 6 créditos galácticos
+	Duración de la Atracción: 1 hora
+
+
+Total a pagar: 19 créditos galácticos (saldo disponible: 11 créditos galácticos).
+Tiempo utilizado 6 horas (tiempo disponible 0 horas).
 
 ¡Que la Fuerza te acompañe!

@@ -29,10 +29,9 @@ public abstract class Promocion extends Propuesta {
 		toString += "- " + nombre + ": " + descrpicion + "\n\n";
 		toString += "\tTipo de Atracción: " + tipoAtraccion.getNombre() + "\n";
 		toString += "\tCosto: " + getCosto() + " créditos galácticos\n";
-		toString += "\tDuración Total: "
-				+ ModificadorFormatoHora.obtenerHoraConFormato(getTiempoUtilizado()) + "\n\n";
-				
-		return 	toString;
+		toString += "\tDuración Total: " + ModificadorFormatoHora.obtenerHoraConFormato(getTiempoUtilizado()) + "\n\n";
+
+		return toString;
 	}
 
 	public void setTiempoUtilizado() {

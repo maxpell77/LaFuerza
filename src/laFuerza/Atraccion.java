@@ -12,7 +12,7 @@ public class Atraccion extends Propuesta {
 		this.tiempoTotal = duracion;
 		this.tipoAtraccion = tipoAtraccion;
 		this.cupoDisponible = cupoMaximo;
-		this.cupoInicial  = cupoMaximo;
+		this.cupoInicial = cupoMaximo;
 		this.nombre = nombre;
 	}
 
@@ -45,7 +45,7 @@ public class Atraccion extends Propuesta {
 	public int getCupoDisponible() {
 		return cupoDisponible;
 	}
-	
+
 	public int getCupoInicial() {
 		return cupoInicial;
 	}

@@ -91,7 +91,7 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 	public abstract void actualizarCupoDisponible();
 
 	public abstract LinkedList<Atraccion> getAtraccionesIncluidas();
-	
+
 	public abstract String toString();
 
 }

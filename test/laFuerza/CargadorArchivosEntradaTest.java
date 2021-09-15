@@ -13,7 +13,7 @@ public class CargadorArchivosEntradaTest {
 	List<String> atracciones = new LinkedList<String>();
 	List<String> promociones = new LinkedList<String>();
 	List<String> usuarios = new LinkedList<String>();
-	
+
 	@Before
 	public void setUp() {
 		atracciones.add("AtTest1,40,10,2,LADO_OSCURO");// nombre, costo, tiempo, cupo, tipoAtraccion
@@ -31,14 +31,13 @@ public class CargadorArchivosEntradaTest {
 		// costo 100
 		promociones.add(
 				"AXB,         LADO_OSCURO, Pack Oscuro 2,  AtTest1 y AtTest2 AtTest3 gratis ., AtTest3, AtTest1;AtTest2;AtTest3");
-		
-		
+
 		CargadorArchivosEntrada.agregarAtracciones(atracciones);// 6 atracciones en setUp
 		CargadorArchivosEntrada.agregarPromociones(promociones); // 3 promocinoes en setUp
 		usuarios.add("U1, LADO_OSCURO, 100, 10");
 		CargadorArchivosEntrada.agregarUsuarios(usuarios);
 	}
-	
+
 	@Test
 	public void cargarAtraccionTest() {
 		Propuesta atraccion1 = CargadorArchivosEntrada.getPropuestas().getFirst();
@@ -48,7 +47,7 @@ public class CargadorArchivosEntradaTest {
 		assertTrue(atraccion1.hayCupoDisponible());
 		assertEquals(TipoAtraccion.LADO_OSCURO, atraccion1.getTipoAtraccion());
 	}
-	
+
 	@Test
 	public void cargarPromocionesPorcentualTest() {
 		Propuesta promocion = CargadorArchivosEntrada.getPropuestas().get(6); // primera promo cargada
@@ -90,7 +89,5 @@ public class CargadorArchivosEntradaTest {
 		assertEquals(100, usuario.getPresupuestoDisponible());
 		assertEquals(10, usuario.getTiempoDisponible(), 0);
 	}
-	
-	
 
 }

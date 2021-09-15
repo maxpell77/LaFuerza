@@ -25,8 +25,6 @@ public abstract class GeneradorResumenSistema {
 		EscritorArchivosSalida.escribirArchivos("salida/resumen_Sistema/DetallePropuestas.csv",
 				generarTablaDetallada(generarTablaOrdenada(propuestas)));
 
-		calcularTotalCuposDisponiblesyVentasNoConcretadas(propuestas);
-
 		EscritorArchivosSalida.escribirArchivos("salida/resumen_Sistema/ResuemGeneral.txt",
 				generarArchivoGeneral(cantidadUsuariosCompradores));
 
@@ -67,6 +65,10 @@ public abstract class GeneradorResumenSistema {
 				TOTAL_INGRESOS += cadaPropuesta.getKey();
 				TOTAL_COMPRAS += propuesta.getCantidadComprada();
 				TOTAL_RECHAZOS += propuesta.getCantidadRechazada();
+				if (propuesta.getClass() == Atraccion.class) {
+					calculosOtrosDatos(propuesta);
+				}
+				
 
 				mensaje += propuesta.getNombre() + "," + propuesta.getTipoAtraccion().getNombre() + ","
 						+ cadaPropuesta.getKey() + "," + propuesta.getCantidadComprada() + ","
@@ -79,19 +81,17 @@ public abstract class GeneradorResumenSistema {
 
 		return mensaje;
 	}
-
-	private static void calcularTotalCuposDisponiblesyVentasNoConcretadas(LinkedList<Propuesta> propuestas) {
-		for (Propuesta propuesta : propuestas) {
-			if (propuesta.getClass() == Atraccion.class) {
-				Atraccion atraccion = (Atraccion) propuesta;
-				CUPOS_TOTALES += atraccion.getCupoInicial();
-				TOTAL_CUPOS_DISPONIBLES += atraccion.getCupoDisponible();
-				MAXIMO_VENTAS_NO_CONCRETADAS += atraccion.getCupoDisponible() * atraccion.getCosto();
-			}
-
-		}
-
+	
+	
+	private static void calculosOtrosDatos(Propuesta propuesta) {
+		Atraccion atraccion = (Atraccion) propuesta;
+		CUPOS_TOTALES += atraccion.getCupoInicial();
+		TOTAL_CUPOS_DISPONIBLES += atraccion.getCupoDisponible();
+		MAXIMO_VENTAS_NO_CONCRETADAS += atraccion.getCupoDisponible() * atraccion.getCosto();
+		
 	}
+	
+	
 
 	public static String generarArchivoGeneral(int cantidadUsuariosCompradores) {
 
@@ -117,6 +117,5 @@ public abstract class GeneradorResumenSistema {
 		return mensaje;
 
 	}
-
 
 }

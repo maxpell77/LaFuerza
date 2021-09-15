@@ -6,19 +6,13 @@ Tiempo Disponible Inicial: 4 horas
 
 Estas son las propuestas contratadas: 
 
-- Atracción: Tatooine
-	Tipo de Atracción: Lado Gris
-	Costo: 6 créditos galácticos
-	Duración de la Atracción: 1 hora
+- Atracción: El Imperio contaataca
+	Tipo de Atracción: Lado Oscuro
+	Costo: 14 créditos galácticos
+	Duración de la Atracción: 3 horas
 
 
-- Atracción: El despertar de la Fuerza
-	Tipo de Atracción: Lado Luminoso
-	Costo: 10 créditos galácticos
-	Duración de la Atracción: 2 horas
-
-
-Total a pagar: 16 créditos galácticos (saldo disponible: 5 créditos galácticos).
+Total a pagar: 14 créditos galácticos (saldo disponible: 7 créditos galácticos).
 Tiempo utilizado 3 horas (tiempo disponible 1 hora).
 
 ¡Que la Fuerza te acompañe!

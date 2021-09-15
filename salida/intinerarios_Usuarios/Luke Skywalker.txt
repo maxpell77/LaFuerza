@@ -13,20 +13,31 @@ Estas son las propuestas contratadas:
 	Duración Total: 4 horas
 
 
-- Pack Luminoso 1: El regreso del Jedi y Una nueva Esperanza con un 20% de descuento comprando ambas.
-
-	Tipo de Atracción: Lado Luminoso
-	Costo: 10 créditos galácticos
-	Duración Total: 5 horas
-
-
 - Atracción: El Imperio contaataca
 	Tipo de Atracción: Lado Oscuro
 	Costo: 14 créditos galácticos
 	Duración de la Atracción: 3 horas
 
 
-Total a pagar: 39 créditos galácticos (saldo disponible: 15 créditos galácticos).
+- Atracción: El ataque de los Clones
+	Tipo de Atracción: Lado Oscuro
+	Costo: 11 créditos galácticos
+	Duración de la Atracción: 2 horas con 30 minutos
+
+
+- Atracción: Naboo
+	Tipo de Atracción: Lado Gris
+	Costo: 7 créditos galácticos
+	Duración de la Atracción: 1 hora con 30 minutos
+
+
+- Atracción: Tatooine
+	Tipo de Atracción: Lado Gris
+	Costo: 6 créditos galácticos
+	Duración de la Atracción: 1 hora
+
+
+Total a pagar: 53 créditos galácticos (saldo disponible: 1 créditos galácticos).
 Tiempo utilizado 12 horas (tiempo disponible 0 horas).
 
 ¡Que la Fuerza te acompañe!

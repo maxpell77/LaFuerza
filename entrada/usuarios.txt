@@ -1,10 +1,10 @@
-Yoda, 				LADO_LUMINOSO,  37, 10
+Yoda, 			LADO_LUMINOSO,  37, 10
 Luke Skywalker,		LADO_LUMINOSO,  54, 12
 Obi-Wan Kenobi, 	LADO_LUMINOSO,  30,  6
 Anakin Skywalker, 	LADO_LUMINOSO,  21,  8
 Darth Vader, 		LADO_OSCURO, 	82, 16
 Darth Sidious, 		LADO_OSCURO, 	43,  8
 Darth Maul, 		LADO_OSCURO, 	38,  5
-Jefe Jawa,			LADO_GRIS,		21,  4
-Garindan,			LADO_GRIS,		28,  6
-Takeel,				LADO_GRIS,		17,  3
+Jefe Jawa,		LADO_GRIS,	21,  4
+Garindan,		LADO_GRIS,	28,  6
+Takeel,			LADO_GRIS,	17,  3

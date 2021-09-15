@@ -1,0 +1,24 @@
+¡Muchas gracias Darth Maul por tu compra!
+
+Tipo de atracción preferida: Lado Oscuro
+Saldo Inicial: 38 créditos galácticos
+Tiempo Disponible Inicial: 5 horas
+
+Estas son las propuestas contratadas: 
+
+- Atracción: La Venganza de los Sith
+	Tipo de Atracción: Lado Oscuro
+	Costo: 15 créditos galácticos
+	Duración de la Atracción: 3 horas con 30 minutos
+
+
+- Atracción: Naboo
+	Tipo de Atracción: Lado Gris
+	Costo: 7 créditos galácticos
+	Duración de la Atracción: 1 hora con 30 minutos
+
+
+Total a pagar: 22 créditos galácticos (saldo disponible: 16 créditos galácticos).
+Tiempo utilizado 5 horas (tiempo disponible 0 horas).
+
+¡Que la Fuerza te acompañe!

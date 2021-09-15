@@ -1,0 +1,18 @@
+¡Muchas gracias u2 por tu compra!
+
+Tipo de atracción preferida: Lado Oscuro
+Saldo Inicial: 100 créditos galácticos
+Tiempo Disponible Inicial: 30 horas
+
+Estas son las propuestas contratadas: 
+
+- Atracción: at1
+	Tipo de Atracción: Lado Oscuro
+	Costo: 100 créditos galácticos
+	Duración de la Atracción: 10 horas
+
+
+Total a pagar: 100 créditos galácticos (saldo disponible: 0 créditos galácticos).
+Tiempo utilizado 10 horas (tiempo disponible 20 horas).
+
+¡Que la Fuerza te acompañe!

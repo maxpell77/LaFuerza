@@ -1,11 +1,11 @@
-Moria,10,2,6,AVENTURA
-Mimimimi,10,8,10,AVENTURA
-Mina Tirith,5,2.5,25,   PAISAJE
-Mordor, 25, 3, 4, AVENTURA
-Abismo de Helm,5,4,15,PAISAJE
-Erebor,12,3,32,PAISAJE
-Bosque Negro,2,4,2,AVENTURA
-La Comarca,3,6.5,150, DEGUSTACION
-Lothlorien,35,1, 30,DEGUSTACION 
-Mimumi,10,3,10,DEGUSTACION
-Atraccion Paisaje 3,10,10,10,PAISAJE
+La Amenaza Fantasma,		 5,	 25, 10, LADO_OSCURO
+La Venganza de los Sith, 	15, 3.5,  8, LADO_OSCURO
+El Imperio contaataca, 		14,   3,  9, LADO_OSCURO
+El regreso del Jedi, 		 7,   2,  6, LADO_LUMINOSO
+El despertar de la Fuerza,  10,   2,  8, LADO_LUMINOSO
+El ataque de los Clones,    11, 2.5, 10, LADO_OSCURO
+Una nueva Esperanza,  	 	 6,   3,  5, LADO_LUMINOSO
+El ascenso de Skywalker,	 8,   2, 12, LADO_LUMINOSO
+Tatooine,					 6,   1,  4, LADO_GRIS
+Naboo,					 	 7, 1.5,  5, LADO_GRIS
+Endor,					 	 5,   2,  4, LADO_GRIS

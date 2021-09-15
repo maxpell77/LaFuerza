@@ -1,0 +1,24 @@
+¡Muchas gracias Jefe Jawa por tu compra!
+
+Tipo de atracción preferida: Lado Gris
+Saldo Inicial: 21 créditos galácticos
+Tiempo Disponible Inicial: 4 horas
+
+Estas son las propuestas contratadas: 
+
+- Atracción: Endor
+	Tipo de Atracción: Lado Gris
+	Costo: 5 créditos galácticos
+	Duración de la Atracción: 2 horas
+
+
+- Atracción: El despertar de la Fuerza
+	Tipo de Atracción: Lado Luminoso
+	Costo: 10 créditos galácticos
+	Duración de la Atracción: 2 horas
+
+
+Total a pagar: 15 créditos galácticos (saldo disponible: 6 créditos galácticos).
+Tiempo utilizado 4 horas (tiempo disponible 0 horas).
+
+¡Que la Fuerza te acompañe!

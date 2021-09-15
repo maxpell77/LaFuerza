@@ -1,3 +1,3 @@
-PORCENTUAL,  AVENTURA ,Pack Aventura 1 , AtTest1 y AtTest2 con 30%dto,       0.30 ,   AtTest1;AtTest2
-ABSOLUTA,    AVENTURA, Pack Aventura 2,  AtTest1 y la AtTest2 a 20 monedas., 20,      AtTest1;AtTest2
-AXB,         AVENTURA, Pack Aventura 3,  AtTest2 y AtTest3 AtTest1 gratis ., AtTest1, AtTest1;AtTest2;AtTest3
+PORCENTUAL,  LADO_OSCURO ,Pack Oscuro 1 , AtTest1 y AtTest2 con 30%dto,       0.30 ,   AtTest1;AtTest2
+ABSOLUTA,    LADO_LUMINOSO, Pack Luminoso 1,  AtTest4 y la AtTest5 a 20 monedas., 20,      AtTest4;AtTest5
+AXB,         LADO_OSCURO, Pack Oscuro 2,  AtTest7 y AtTest8 AtTest9 gratis ., AtTest9, AtTest7;AtTest8;AtTest9

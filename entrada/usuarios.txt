@@ -1,7 +1,10 @@
-Eowyn, AVENTURA, 100, 20
-Ootro, AVENTURA, 100, 25
-Otromas, AVENTURA, 100, 25
-YOtromas, AVENTURA, 100, 25
-Gandalf, PAISAJE, 100, 100
-Sam, DEGUSTACION, 36, 8
-Galadriel, PAISAJE, 120, 6
+Yoda, 				LADO_LUMINOSO,  37, 10
+Luke Skywalker,		LADO_LUMINOSO,  54, 12
+Obi-Wan Kenobi, 	LADO_LUMINOSO,  30,  6
+Anakin Skywalker, 	LADO_LUMINOSO,  21,  8
+Darth Vader, 		LADO_OSCURO, 	82, 16
+Darth Sidious, 		LADO_OSCURO, 	43,  8
+Darth Maul, 		LADO_OSCURO, 	38,  5
+Jefe Jawa,			LADO_GRIS,		21,  4
+Garindan,			LADO_GRIS,		28,  6
+Takeel,				LADO_GRIS,		17,  3

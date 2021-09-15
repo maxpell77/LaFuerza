@@ -1,4 +1,5 @@
-PORCENTUAL, AVENTURA   , Pack Aventura 1   , Bosque negro y Mordor con un 20% de descuento si se compran ambas., 0.20 ,Bosque Negro;Mordor
-ABSOLUTA, DEGUSTACION, Pack Degustacion 1, Lothlórien y la Comarca a 36 monedas., 36, Lothlorien;La Comarca
-AXB, PAISAJE   , Pack Paisajes 1   , Comprando Minas Tirith y el Abismo de Helm Erebor es gratis., Erebor,Erebor;Mina Tirith;Abismo de Helm
-ABSOLUTA, DEGUSTACION, Pack Degustacion 2, Lothlórien y Mimumi a 40 monedas., 40, Lothlorien;Mimumi
+PORCENTUAL, LADO_LUMINOSO,  Pack Luminoso 1,  El regreso del Jedi y Una nueva Esperanza con un 20% de descuento comprando ambas.,						     	  0.20, 	El regreso del Jedi;Una nueva Esperanza
+ABSOLUTA,	LADO_LUMINOSO,  Pack Luminoso 2,  El despertar de la Fuerza y El ascenso de Skywalker a 15 créditos galácticos., 								    	15, 	El despertar de la Fuerza;El ascenso de Skywalker
+AXB,		LADO_OSCURO,	Pack Oscuro 1, 	  El Imperio contaataca es gratis comprando La Venganza de los Sith y El ataque de los Clones., 	 El Imperio contaataca, 	El Imperio contaataca;La Venganza de los Sith;El ataque de los Clones
+ABSOLUTA,	LADO_OSCURO, 	Pack Oscuro 2,	  El ataque de los Clones y El Imperio contaataca a 21 créditos galácticos., 					 			 			21, 	El ataque de los Clones;El Imperio contaataca
+AXB,		LADO_GRIS, 		Pack Gris 1, 	  Tatooine gratis comprando Naboo y Endor.,																      	  Tatooine, 	Tatooine;Naboo;Endor

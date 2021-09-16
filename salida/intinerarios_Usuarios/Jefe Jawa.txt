@@ -6,13 +6,19 @@ Tiempo Disponible Inicial: 4 horas
 
 Estas son las propuestas contratadas: 
 
-- Atracción: El Imperio contaataca
+- Atracción: Naboo
+	Tipo de Atracción: Lado Gris
+	Costo: 7 créditos galácticos
+	Duración de la Atracción: 1 hora con 30 minutos
+
+
+- Atracción: El ataque de los Clones
 	Tipo de Atracción: Lado Oscuro
-	Costo: 14 créditos galácticos
-	Duración de la Atracción: 3 horas
+	Costo: 11 créditos galácticos
+	Duración de la Atracción: 2 horas con 30 minutos
 
 
-Total a pagar: 14 créditos galácticos (saldo disponible: 7 créditos galácticos).
-Tiempo utilizado 3 horas (tiempo disponible 1 hora).
+Total a pagar: 18 créditos galácticos (saldo disponible: 3 créditos galácticos).
+Tiempo utilizado 4 horas (tiempo disponible 0 horas).
 
 ¡Que la Fuerza te acompañe!

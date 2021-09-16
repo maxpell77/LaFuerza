@@ -6,20 +6,20 @@ Tiempo Disponible Inicial: 8 horas
 
 Estas son las propuestas contratadas: 
 
-- Pack Luminoso 2: El despertar de la Fuerza y El ascenso de Skywalker a 15 créditos galácticos.
+- Pack Luminoso 1: El regreso del Jedi y Una nueva Esperanza con un 20% de descuento comprando ambas.
 
 	Tipo de Atracción: Lado Luminoso
-	Costo: 15 créditos galácticos
-	Duración Total: 4 horas
+	Costo: 10 créditos galácticos
+	Duración Total: 5 horas
 
 
-- Atracción: Una nueva Esperanza
+- Atracción: El ascenso de Skywalker
 	Tipo de Atracción: Lado Luminoso
-	Costo: 6 créditos galácticos
-	Duración de la Atracción: 3 horas
+	Costo: 8 créditos galácticos
+	Duración de la Atracción: 2 horas
 
 
-Total a pagar: 21 créditos galácticos (saldo disponible: 0 créditos galácticos).
+Total a pagar: 18 créditos galácticos (saldo disponible: 3 créditos galácticos).
 Tiempo utilizado 7 horas (tiempo disponible 1 hora).
 
 ¡Que la Fuerza te acompañe!

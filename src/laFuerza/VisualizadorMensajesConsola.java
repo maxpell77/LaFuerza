@@ -1,4 +1,4 @@
-package laFuerza;
+ package laFuerza;
 
 public abstract class VisualizadorMensajesConsola {
 

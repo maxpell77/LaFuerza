@@ -64,8 +64,9 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 		else {
 			c = o.getCosto() - this.getCosto();
 			if (c == 0) {
-				double tiempoDif = o.getTiempoUtilizado() - this.getTiempoUtilizado();
-				c = tiempoDif > 0 ? 1 : (tiempoDif < 0 ? -1 : 0);
+//				double tiempoDif = o.getTiempoUtilizado() - this.getTiempoUtilizado();
+//				c = tiempoDif > 0 ? 1 : (tiempoDif < 0 ? -1 : 0);
+				c = Double.compare(o.getTiempoUtilizado(), this.getTiempoUtilizado());
 			}
 		}
 		return c;
@@ -93,5 +94,7 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 	public abstract LinkedList<Atraccion> getAtraccionesIncluidas();
 
 	public abstract String toString();
+	
+	
 
 }

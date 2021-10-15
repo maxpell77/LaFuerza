@@ -9,7 +9,7 @@ public class Usuario {
 	private double tiempoMaximoInicial;
 	private double tiempoDisponible;
 	private String nombre;
-	private LinkedList<Atraccion> atraccionesContratadas = new LinkedList<Atraccion>();
+	private LinkedList<Atraccion> atraccionesContratadas = new LinkedList<Atraccion>(); //hace falta, puede set de atracciones, linkedlis es nodo, sino puede ser set (y dice contains), no objeto
 	private LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
 
 	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo) {
@@ -57,7 +57,8 @@ public class Usuario {
 	private boolean tieneTiempoDisponible(Propuesta propuesta) {
 		return tiempoDisponible >= propuesta.getTiempoUtilizado();
 	}
-
+	
+	//reveer esto!
 	private boolean atraccionNoContratada(Propuesta propuesta) {
 		boolean atraccionNoInculida = true;
 		for (Atraccion atraccionContratada : atraccionesContratadas) {
@@ -74,12 +75,8 @@ public class Usuario {
 	}
 
 	public boolean aceptaPropuesta(Propuesta propuesta) {
-		String entradaConsola = LectorConsola.esperarRespuestaUsuario();
-		if (entradaConsola.equals("S")) {
-			return true;
-		} else {
-			return false;
-		}
+	 
+		return LectorConsola.esperarRespuestaUsuario().equals("S");
 	}
 
 	public int getPresupuestoInicial() {

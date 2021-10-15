@@ -7,15 +7,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Ofertador {
-	private static int CANTIDAD_USUARIOS_COMPRADORES = 0;
-	private static boolean COMPRO_PROPUESTA = false;
+	private static int cantidad_usuarios_compradores = 0; 
+	private static boolean compro_propuesta = false;
 
 	public static void sugerirPropuestasAusuarios(LinkedList<Propuesta> propuestas, LinkedList<Usuario> usuarios)
 			throws IOException {
 		LectorConsola.abrirEscanner();
-
+		
+		//List<Usuario> usuario = userDAO.findAll()
 		for (Usuario usuario : usuarios) {
-			COMPRO_PROPUESTA = false;
+			compro_propuesta = false;
+			
+			//List<Propuesta> propuestasOrdenadas = propuestasDAO.findbyTipoAtraccion(tipoAtraccion)
 			List<Propuesta> propuestasOrdenadas = ordenarPropuestas(propuestas, usuario.getTipoAtraccionPreferida());
 			VisualizadorMensajesConsola.mostrarBienvenida(usuario);
 
@@ -33,11 +36,13 @@ public abstract class Ofertador {
 
 		}
 		LectorConsola.cerrarEscanner();
-		GeneradorResumenSistema.generarResuemSistema(propuestas, CANTIDAD_USUARIOS_COMPRADORES);
+		GeneradorResumenSistema.generarResuemSistema(propuestas, cantidad_usuarios_compradores);
 	}
 
 	private static List<Propuesta> ordenarPropuestas(LinkedList<Propuesta> propuestas, TipoAtraccion tipoAtraccion) {
-
+		//ordenar una sola vez y despues filtrar por gusto, se pasa 2 veces primero
+		//los que le gusta y despues lo sque no, asi no se ordena tantas veces.
+		
 		List<Propuesta> propuestasFiltradas = new ArrayList<Propuesta>();
 		List<Propuesta> restoPropuestas = new ArrayList<Propuesta>();
 
@@ -61,7 +66,7 @@ public abstract class Ofertador {
 		usuario.agregarPropuestaAceptada(propuesta);
 		propuesta.actualizarCupoDisponible();
 		propuesta.actualizarCompraPropuesta();
-		COMPRO_PROPUESTA = true;
+		compro_propuesta = true;
 	}
 
 	private static void propuestaRechazada(Propuesta propuesta) {
@@ -74,8 +79,8 @@ public abstract class Ofertador {
 		String intinerario = GeneradorIntinerarioUsuario.generarIntinerario(usuario);
 		EscritorArchivosSalida.escribirArchivos(file, intinerario);
 
-		if (COMPRO_PROPUESTA) {
-			CANTIDAD_USUARIOS_COMPRADORES++;
+		if (compro_propuesta) {
+			cantidad_usuarios_compradores++;
 			VisualizadorMensajesConsola.mostrarFinlizacionConCompra(usuario);
 		} else {
 			VisualizadorMensajesConsola.mostrarFinlizacionSinCompra(usuario);

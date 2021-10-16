@@ -1,24 +1,25 @@
 ¡Muchas gracias Darth Maul por tu compra!
 
-Tipo de atracción preferida: Lado Oscuro
+Tipo de atracción preferida: Lado Luminoso
 Saldo Inicial: 38 créditos galácticos
 Tiempo Disponible Inicial: 5 horas
 
 Estas son las propuestas contratadas: 
 
-- Atracción: La Venganza de los Sith
-	Tipo de Atracción: Lado Oscuro
+- Pack Luminoso 2: El despertar de la Fuerza y El ascenso de Skywalker a 15 créditos galácticos.
+
+	Tipo de Atracción: Lado Luminoso
 	Costo: 15 créditos galácticos
-	Duración de la Atracción: 3 horas con 30 minutos
+	Duración Total: 4 horas
 
 
-- Atracción: Naboo
+- Atracción: Tatooine
 	Tipo de Atracción: Lado Gris
-	Costo: 7 créditos galácticos
-	Duración de la Atracción: 1 hora con 30 minutos
+	Costo: 6 créditos galácticos
+	Duración de la Atracción: 1 hora
 
 
-Total a pagar: 22 créditos galácticos (saldo disponible: 16 créditos galácticos).
+Total a pagar: 21 créditos galácticos (saldo disponible: 17 créditos galácticos).
 Tiempo utilizado 5 horas (tiempo disponible 0 horas).
 
 ¡Que la Fuerza te acompañe!

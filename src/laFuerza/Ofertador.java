@@ -10,7 +10,7 @@ public abstract class Ofertador {
 	private static int cantidad_usuarios_compradores = 0; 
 	private static boolean compro_propuesta = false;
 
-	public static void sugerirPropuestasAusuarios(LinkedList<Propuesta> propuestas, LinkedList<Usuario> usuarios)
+	public static void sugerirPropuestasAusuarios(LinkedList<Propuesta> propuestas, List<Usuario> usuarios)
 			throws IOException {
 		LectorConsola.abrirEscanner();
 		

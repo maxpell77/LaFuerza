@@ -1,5 +1,6 @@
 package laFuerza;
 
 public enum TipoPromocion {
-	PORCENTUAL, ABSOLUTA, AXB
+	PORCENTUAL, ABSOLUTA, AXB;
+
 }

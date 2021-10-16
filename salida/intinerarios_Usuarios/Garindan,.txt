@@ -1,4 +1,4 @@
-¡Muchas gracias Garindan por tu compra!
+¡Muchas gracias Garindan, por tu compra!
 
 Tipo de atracción preferida: Lado Gris
 Saldo Inicial: 28 créditos galácticos
@@ -19,7 +19,7 @@ Estas son las propuestas contratadas:
 
 
 - Atracción: El ataque de los Clones
-	Tipo de Atracción: Lado Luminoso
+	Tipo de Atracción: Lado Oscuro
 	Costo: 11 créditos galácticos
 	Duración de la Atracción: 2 horas con 30 minutos
 

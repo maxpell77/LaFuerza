@@ -1,19 +1,19 @@
 Propuesta, Tipo de Atracción, Ingresos Totales, Compras, Rechazos
-Pack Luminoso 2,Lado Luminoso,75,5,0
-Pack Oscuro 1,Lado Oscuro,26,1,0
-Naboo,Lado Gris,21,3,0
-Pack Oscuro 2,Lado Oscuro,21,1,0
-Pack Luminoso 1,Lado Luminoso,20,2,0
+Pack Oscuro 1,Lado Oscuro,52,2,0
+Pack Luminoso 2,Lado Luminoso,30,2,1
+Naboo,Lado Gris,28,4,0
+El ascenso de Skywalker,Lado Oscuro,24,3,0
+El ataque de los Clones,Lado Luminoso,22,2,1
+Pack Oscuro 2,Lado Oscuro,21,1,1
+El despertar de la Fuerza,Lado Oscuro,20,2,2
 Tatooine,Lado Gris,18,3,0
-La Venganza de los Sith,Lado Oscuro,15,1,0
-El Imperio contaataca,Lado Oscuro,14,1,0
-El regreso del Jedi,Lado Luminoso,14,2,0
+La Venganza de los Sith,Lado Luminoso,15,1,1
+El regreso del Jedi,Lado Oscuro,14,2,0
 Pack Gris 1,Lado Gris,12,1,0
-El despertar de la Fuerza,Lado Luminoso,10,1,0
-Una nueva Esperanza,Lado Luminoso,6,1,0
-La Amenaza Fantasma,Lado Oscuro,0,0,0
-El ataque de los Clones,Lado Oscuro,0,0,0
-El ascenso de Skywalker,Lado Luminoso,0,0,0
-Endor,Lado Gris,0,0,0
-TOTALES,,252,22,0
+Una nueva Esperanza,Lado Oscuro,5,1,0
+Endor,Lado Gris,5,1,1
+La Amenaza Fantasma,Lado Luminoso,0,0,0
+El Imperio contaataca,Lado Luminoso,0,0,1
+Pack Luminoso 1,Lado Luminoso,0,0,1
+TOTALES,,266,25,9
 

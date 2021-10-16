@@ -3,25 +3,29 @@ package laFuerza;
 import java.util.LinkedList;
 import java.util.List;
 
+import dao.AtraccionesDAO;
+import dao.DAOFactory;
+import dao.UserDAO;
+
 public abstract class CargadorArchivosEntrada {
-	private static LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
+	private static List<Usuario> usuarios = new LinkedList<Usuario>();
 	private static LinkedList<Propuesta> propuestas = new LinkedList<Propuesta>();
 
-	public static void agregarAtracciones(List<String> atraccionesAIngresar) {
-		for (String atraccion : atraccionesAIngresar) {
-			String[] datosAtracciones = atraccion.split(",");
-			String nombre = datosAtracciones[0].trim();
-			int costo = Integer.parseInt(datosAtracciones[1].trim());
-			double tiempo = Double.parseDouble(datosAtracciones[2].trim());
-			int cupo = Integer.parseInt(datosAtracciones[3].trim());
-			TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(datosAtracciones[4].trim());
 
-			Atraccion nuevaAtraccion = new Atraccion(costo, tiempo, tipoAtraccion, cupo, nombre);
-			propuestas.add(nuevaAtraccion);
-
+	
+	public static void agregarAtracciones() {
+		AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
+		List<Atraccion> atracciones = atraccionesDAO.findAll();
+		
+		System.out.println(atracciones);
+		
+		for(Atraccion atraccion : atracciones) {
+			propuestas.add(atraccion);
 		}
-
+	
+		
 	}
+	
 
 	public static void agregarPromociones(List<String> promocionesAIngresar) {
 
@@ -62,22 +66,16 @@ public abstract class CargadorArchivosEntrada {
 		}
 	}
 
-	public static void agregarUsuarios(List<String> usuariosAIngresar) {
 
-		for (String usuario : usuariosAIngresar) {
-			String[] datosUsuarios = usuario.split(",");
-			String nombre = datosUsuarios[0].trim();
-			TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(datosUsuarios[1].trim());
-			int costo = Integer.parseInt(datosUsuarios[2].trim());
-			double tiempo = Double.parseDouble(datosUsuarios[3].trim());
-
-			Usuario nuevoUsuario = new Usuario(nombre, tipoAtraccion, costo, tiempo);
-			usuarios.add(nuevoUsuario);
-
-		}
-
+	
+	public static void agregarUsuarios() {
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		usuarios =  userDAO.findAll() ;
+			
 	}
 
+	
+	
 	private static Atraccion obtenerAtraccionPorNombre(String nombre) {
 		for (Propuesta atraccion : propuestas) {
 			if (atraccion.getNombre().equals(nombre)) {
@@ -87,7 +85,7 @@ public abstract class CargadorArchivosEntrada {
 		return null;
 	}
 
-	public static LinkedList<Usuario> getUsuarios() {
+	public static List<Usuario> getUsuarios() {
 		return usuarios;
 	}
 

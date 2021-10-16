@@ -1,23 +1,16 @@
 ¡Muchas gracias Yoda por tu compra!
 
-Tipo de atracción preferida: Lado Luminoso
+Tipo de atracción preferida: Lado Oscuro
 Saldo Inicial: 37 créditos galácticos
 Tiempo Disponible Inicial: 10 horas
 
 Estas son las propuestas contratadas: 
 
-- Pack Luminoso 2: El despertar de la Fuerza y El ascenso de Skywalker a 15 créditos galácticos.
+- Pack Oscuro 1: El Imperio contaataca es gratis comprando La Venganza de los Sith y El ataque de los Clones.
 
-	Tipo de Atracción: Lado Luminoso
-	Costo: 15 créditos galácticos
-	Duración Total: 4 horas
-
-
-- Pack Luminoso 1: El regreso del Jedi y Una nueva Esperanza con un 20% de descuento comprando ambas.
-
-	Tipo de Atracción: Lado Luminoso
-	Costo: 10 créditos galácticos
-	Duración Total: 5 horas
+	Tipo de Atracción: Lado Oscuro
+	Costo: 26 créditos galácticos
+	Duración Total: 9 horas
 
 
 - Atracción: Tatooine
@@ -26,7 +19,7 @@ Estas son las propuestas contratadas:
 	Duración de la Atracción: 1 hora
 
 
-Total a pagar: 31 créditos galácticos (saldo disponible: 6 créditos galácticos).
+Total a pagar: 32 créditos galácticos (saldo disponible: 5 créditos galácticos).
 Tiempo utilizado 10 horas (tiempo disponible 0 horas).
 
 ¡Que la Fuerza te acompañe!

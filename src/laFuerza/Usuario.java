@@ -12,6 +12,7 @@ public class Usuario {
 	private LinkedList<Atraccion> atraccionesContratadas = new LinkedList<Atraccion>(); //hace falta, puede set de atracciones, linkedlis es nodo, sino puede ser set (y dice contains), no objeto
 	private LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
 
+	//string, tipoat, int prsu, double tiempo
 	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo) {
 		this.tipoAtraccionPreferida = tipoAtraccionPreferida;
 		this.presupuestoInicial = presupuesto;

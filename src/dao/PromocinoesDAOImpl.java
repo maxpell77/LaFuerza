@@ -15,9 +15,8 @@ import laFuerza.Promocion;
 import laFuerza.PromocionAXB;
 import laFuerza.TipoAtraccion;
 
-public class PromocinoesDAOImpl implements PromocionesDAO{
-	
-	
+public class PromocinoesDAOImpl implements PromocionesDAO {
+
 	public int insert(Promocion promocion) {
 		try {
 			String sql = "INSERT INTO ATRACCIONES (NOMBRE, COSTO, TIEMPO, CUPO, TIPO_ATRACCION) VALUES (?, ?, ?, ?, ?)";
@@ -43,7 +42,7 @@ public class PromocinoesDAOImpl implements PromocionesDAO{
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			
+
 			statement.setInt(1, promocion.getCosto());
 			statement.setDouble(2, promocion.getTiempoUtilizado());
 //			statement.setInt(3, promocion.getCupoDisponible());
@@ -112,32 +111,16 @@ public class PromocinoesDAOImpl implements PromocionesDAO{
 	public List<Promocion> findAll() {
 		try {
 			String sql = "SELECT * FROM PROMOCIONES";
-			
+
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
-			
-//			AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
-//			LinkedList<Atraccion> atracciones = new LinkedList<Atraccion>();
-//			LinkedList<Atraccion> atraccionesGratisAXB = new LinkedList<Atraccion>();
-			
+
 			List<Promocion> promociones = new LinkedList<Promocion>();
 			while (resultados.next()) {
-				
+
 				promociones.add(toPromocion(resultados));
-				
-				
-//				atracciones = atraccionesDAO.encontrarAtraccionesdePromociones(resultados.getInt(1));	
-//				
-//				if(resultados.getInt(2)==1) {
-//					promociones.add(toPromoPorcentual(resultados, atracciones));
-//				} else if (resultados.getInt(2)==2) {
-//					promociones.add(toPromoAbsoluta(resultados, atracciones));
-//				} else {
-//					atraccionesGratisAXB = atraccionesDAO.encontrarAtraccionesdePromosAXB(resultados.getInt(1));
-//					promociones.add(toPromoAXB(resultados, atracciones, atraccionesGratisAXB));
-//				}
-				
+
 			}
 
 			return promociones;
@@ -146,35 +129,38 @@ public class PromocinoesDAOImpl implements PromocionesDAO{
 		}
 	}
 
-
 	private Promocion toPromocion(ResultSet resultados) throws SQLException {
-		
+
 		AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
 		LinkedList<Atraccion> atracciones = atraccionesDAO.encontrarAtraccionesdePromociones(resultados.getInt(1));
-		
-		if(resultados.getInt(2)==1) {
+
+		if (resultados.getInt(2) == 1) {
 			return toPromoPorcentual(resultados, atracciones);
-		} else if (resultados.getInt(2)==2) {
+		} else if (resultados.getInt(2) == 2) {
 			return toPromoAbsoluta(resultados, atracciones);
 		} else {
-			LinkedList<Atraccion> atraccionesGratisAXB  = atraccionesDAO.encontrarAtraccionesdePromosAXB(resultados.getInt(1));
+			LinkedList<Atraccion> atraccionesGratisAXB = atraccionesDAO
+					.encontrarAtraccionesdePromosAXB(resultados.getInt(1));
 			return toPromoAXB(resultados, atracciones, atraccionesGratisAXB);
 		}
-		
+
 	}
 
+	private PromoPorcentual toPromoPorcentual(ResultSet resultados, LinkedList<Atraccion> atracciones)
+			throws SQLException {
+		return new PromoPorcentual(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
+				resultados.getString(5), atracciones, resultados.getDouble(6));
+	}
 
-	private PromoPorcentual toPromoPorcentual(ResultSet resultados, LinkedList<Atraccion> atracciones) throws SQLException {
-		return new PromoPorcentual(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),resultados.getString(5), atracciones, resultados.getDouble(6) );
+	private PromoAbsoluta toPromoAbsoluta(ResultSet resultados, LinkedList<Atraccion> atracciones) throws SQLException {
+		return new PromoAbsoluta(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
+				resultados.getString(5), atracciones, resultados.getInt(6));
 	}
-	
-	private PromoAbsoluta toPromoAbsoluta(ResultSet resultados, LinkedList<Atraccion> atracciones) throws SQLException  {
-		return new PromoAbsoluta(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),resultados.getString(5), atracciones, resultados.getInt(6) );
+
+	private PromocionAXB toPromoAXB(ResultSet resultados, LinkedList<Atraccion> atracciones,
+			LinkedList<Atraccion> atraccionesGratis) throws SQLException {
+		return new PromocionAXB(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
+				resultados.getString(5), atracciones, atraccionesGratis);
 	}
-	
-	private PromocionAXB toPromoAXB(ResultSet resultados, LinkedList<Atraccion> atracciones, LinkedList<Atraccion> atraccionesGratis) throws SQLException  {
-		return new PromocionAXB(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),resultados.getString(5), atracciones, atraccionesGratis );
-	}
-	
 
 }

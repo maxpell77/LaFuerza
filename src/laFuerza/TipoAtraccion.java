@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum TipoAtraccion {
-	LADO_OSCURO("Lado Oscuro", 1), LADO_LUMINOSO("Lado Luminoso", 2), LADO_GRIS("Lado Gris", 3);
+	LADO_LUMINOSO("Lado Luminoso", 1), LADO_OSCURO("Lado Oscuro", 2), LADO_GRIS("Lado Gris", 3);
 
 	private String nombre;
 	private int numero_id;

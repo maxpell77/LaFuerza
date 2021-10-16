@@ -69,7 +69,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 		}
 	}
 
-	public Atraccion findByUsername(String username) {
+	public Atraccion findByname(String username) {
 		try {
 			String sql = "SELECT * FROM ATRACCIONES WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
@@ -128,5 +128,60 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 		return new Atraccion(resultados.getInt(3), resultados.getDouble(4),  TipoAtraccion.valueOf(resultados.getInt(6) ) ,resultados.getInt(5), resultados.getString(2) );
 	}
 
+
+	public LinkedList<Atraccion> encontrarAtraccionesdePromociones(int idPromocion) {
+		try {
+			String sql = 
+			
+			"SELECT ATRACCIONES.* FROM ATRACCIONES_DE_PROMOCIONES "
+			+ "JOIN PROMOCIONES ON PROMOCIONES.ID = ATRACCIONES_DE_PROMOCIONES.ID_PROMOCION "
+			+ "JOIN ATRACCIONES ON ATRACCIONES.ID = ATRACCIONES_DE_PROMOCIONES.ID_ATRACCION "
+			+ "WHERE PROMOCIONES.ID = ?";
+			
+			
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, idPromocion);
+			ResultSet resultados = statement.executeQuery();
+
+			LinkedList<Atraccion> atracciones = new LinkedList<Atraccion>();
+			while (resultados.next()) {
+				atracciones.add(toAtraccion(resultados));
+			}
+
+			return atracciones;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+			
+	}
+	
+	public LinkedList<Atraccion> encontrarAtraccionesdePromosAXB(int idPromocion) {
+		try {
+			String sql = 
+			
+			"SELECT ATRACCIONES.* FROM ATRACCIONES_DE_PROMOS_AXB "
+			+ "JOIN PROMOCIONES ON PROMOCIONES.ID = ATRACCIONES_DE_PROMOS_AXB.ID_PROMOCION "
+			+ "JOIN ATRACCIONES ON ATRACCIONES.ID = ATRACCIONES_DE_PROMOS_AXB.ID_ATRACCION "
+			+ "WHERE PROMOCIONES.ID = ?";
+			
+			
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, idPromocion);
+			ResultSet resultados = statement.executeQuery();
+
+			LinkedList<Atraccion> atracciones = new LinkedList<Atraccion>();
+			while (resultados.next()) {
+				atracciones.add(toAtraccion(resultados));
+			}
+
+			return atracciones;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+			
+	}
+	
 
 }

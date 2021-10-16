@@ -5,6 +5,7 @@ import java.util.List;
 
 import dao.AtraccionesDAO;
 import dao.DAOFactory;
+import dao.PromocionesDAO;
 import dao.UserDAO;
 
 public class Administrador {
@@ -27,14 +28,9 @@ public class Administrador {
 
 	public void activarSistema() throws IOException {
 
-		// una sola variable de archivos
-//		List<String> atracciones = LectorArchivosdeEntrada.leerArchivo("entrada/atracciones.txt");
-		List<String> promociones = LectorArchivosdeEntrada.leerArchivo("entrada/promociones.txt");
-//	List<String> usuarios = LectorArchivosdeEntrada.leerArchivo("entrada/usuarios.txt");
 
-		// CargadorArchivosEntrada.agregarAtracciones(atracciones);
 		CargadorArchivosEntrada.agregarAtracciones();
-		CargadorArchivosEntrada.agregarPromociones(promociones);
+		CargadorArchivosEntrada.agregarPromociones();
 		CargadorArchivosEntrada.agregarUsuarios();
 		
 
@@ -45,8 +41,8 @@ public class Administrador {
 	
 	
 //	public void activarSistema() throws IOException {
-//		AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
-//		System.out.println(atraccionesDAO.findAll()) ;
+//		PromocionesDAO promocionesDAO = DAOFactory.getPromocinoesDAO();
+//		System.out.println(promocionesDAO.findAll()) ;
 //	
 //
 //	}

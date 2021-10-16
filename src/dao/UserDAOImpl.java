@@ -67,7 +67,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	public Usuario findByUsername(String username) {
+	public Usuario findByname(String username) {
 		try {
 			String sql = "SELECT * FROM USUARIOS WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();

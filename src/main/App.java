@@ -10,6 +10,7 @@ public class App {
 
 		Administrador admin = new Administrador();
 		admin.activarSistema();
+		
 
 	}
 

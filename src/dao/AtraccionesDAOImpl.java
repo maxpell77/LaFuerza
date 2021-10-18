@@ -35,7 +35,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 
 	public int update(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE ATRACCIONES SET  COSTO = ?, TIEMPO = ?, CUPO = ?, TIPO_ATRACCION = ?, WHERE NOMBRE = ?";
+			String sql = "UPDATE ATRACCIONES SET  COSTO = ?, TIEMPO = ?, CUPO = ?, TIPO_ATRACCION = ? WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -181,6 +181,54 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			throw new MissingDataException(e);
 		}
 			
+	}
+	
+	
+	public LinkedList<Atraccion> encontraAtraccionesContratadasPorUsuarios(String nombreUsuario){
+		try {
+			String sql = 
+			
+			"SELECT ATRACCIONES.* FROM propuestas_compradas_por_usuarios "
+			+ "JOIN usuarios ON usuarios.nombre = propuestas_compradas_por_usuarios.nombre_usuario "
+			+ "JOIN atracciones ON atracciones.nombre = propuestas_compradas_por_usuarios.nombre_atraccion "
+			+ "WHERE usuarios.nombre = ?";
+			
+			
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombreUsuario);
+			ResultSet resultados = statement.executeQuery();
+
+			LinkedList<Atraccion> atracciones = new LinkedList<Atraccion>();
+			while (resultados.next()) {
+				atracciones.add(toAtraccion(resultados));
+			}
+
+			return atracciones;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+			
+	}
+
+	@Override
+	public int updateCupos(Atraccion atraccion) {
+		
+		try {
+			String sql = "UPDATE ATRACCIONES SET  CUPO = ? WHERE NOMBRE = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setInt(1, atraccion.getCupoDisponible());
+			statement.setString(2, atraccion.getNombre());
+
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 	
 

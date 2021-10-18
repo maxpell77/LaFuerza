@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import jdbc.ConnectionProvider;
+import laFuerza.Atraccion;
+import laFuerza.Promocion;
+import laFuerza.Propuesta;
 import laFuerza.TipoAtraccion;
 import laFuerza.Usuario;
 
@@ -51,6 +54,39 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
+	
+	
+	public int insertPropuestaContratadas(Usuario user, Propuesta propuesta) {
+		
+		try {
+			String sql = "INSERT INTO PROPUESTAS_COMPRADAS_POR_USUARIOS (NOMBRE_USUARIO, NOMBRE_PROMOCION, NOMBRE_ATRACCION) VALUES (?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setString(1, user.getNombre());
+			
+			if(propuesta.getClass() == Atraccion.class ) {
+				statement.setString(3, propuesta.getNombre());
+				
+			} else {
+				statement.setString(2, propuesta.getNombre());
+				
+			}
+
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+		
+		
+		
+	}
+	
+	
 
 	public int delete(Usuario user) {
 		try {
@@ -112,6 +148,7 @@ public class UserDAOImpl implements UserDAO {
 
 			List<Usuario> usuarios = new LinkedList<Usuario>();
 			while (resultados.next()) {
+				
 				usuarios.add(toUser(resultados));
 			}
 
@@ -120,10 +157,23 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
 
-	//string, tipoat, int prsu, double tiempo
 	private Usuario toUser(ResultSet resultados) throws SQLException {
-		return new Usuario(resultados.getString(2), TipoAtraccion.valueOf(resultados.getInt(3) ) ,resultados.getInt(4), resultados.getDouble(5));
+		AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
+		LinkedList<Atraccion> atracciones = atraccionesDAO.encontraAtraccionesContratadasPorUsuarios(resultados.getString(2));
+		
+		PromocionesDAO promocionesDAO = DAOFactory.getPromocinoesDAO();
+		LinkedList<Promocion> promociones = promocionesDAO.encontrarPromocionesContratadasPorUsuarios(resultados.getString(2));
+		
+		LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
+		propuestasCompradas.addAll(atracciones);
+		propuestasCompradas.addAll(promociones);
+		
+		return new Usuario(resultados.getString(2), TipoAtraccion.valueOf(resultados.getInt(3) ) ,resultados.getInt(4), resultados.getDouble(5), propuestasCompradas);
 	}
+	
+	
+
 
 }

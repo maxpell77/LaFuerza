@@ -3,7 +3,7 @@ package laFuerza;
 import java.util.LinkedList;
 
 public abstract class Promocion extends Propuesta {
-
+	protected int tipo_promocion_id; 
 	protected String descrpicion;
 	protected LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 
@@ -22,6 +22,7 @@ public abstract class Promocion extends Propuesta {
 	public String getDescripcion() {
 		return this.descrpicion;
 	}
+	
 
 	@Override
 	public String toString() {
@@ -41,6 +42,11 @@ public abstract class Promocion extends Propuesta {
 	}
 
 	public abstract void setCosto();
+	
+	
+	public int getTipoPromocionID() {
+		return tipo_promocion_id;
+	}
 
 	protected int getCostoTotalAtracciones(LinkedList<Atraccion> listadoAtracciones) {
 		int costoTotal = 0;

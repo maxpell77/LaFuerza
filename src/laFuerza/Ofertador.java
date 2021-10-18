@@ -14,11 +14,11 @@ public abstract class Ofertador {
 			throws IOException {
 		LectorConsola.abrirEscanner();
 		
-		//List<Usuario> usuario = userDAO.findAll()
+	
 		for (Usuario usuario : usuarios) {
 			compro_propuesta = false;
 			
-			//List<Propuesta> propuestasOrdenadas = propuestasDAO.findbyTipoAtraccion(tipoAtraccion)
+		
 			List<Propuesta> propuestasOrdenadas = ordenarPropuestas(propuestas, usuario.getTipoAtraccionPreferida());
 			VisualizadorMensajesConsola.mostrarBienvenida(usuario);
 

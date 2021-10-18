@@ -2,6 +2,9 @@ package laFuerza;
 
 import java.util.LinkedList;
 
+import dao.AtraccionesDAO;
+import dao.DAOFactory;
+
 public class Atraccion extends Propuesta {
 
 	private int cupoDisponible;
@@ -21,6 +24,9 @@ public class Atraccion extends Propuesta {
 		cupoDisponible--;
 		if (cupoDisponible == 0)
 			hayCupoDisponible = false;
+		
+		AtraccionesDAO atraccionDAO = DAOFactory.getAtraccionesDAO();
+		atraccionDAO.updateCupos(this);
 	}
 
 	@Override

@@ -38,16 +38,35 @@ public class PromocinoesDAOImpl implements PromocionesDAO {
 
 	public int update(Promocion promocion) {
 		try {
-			String sql = "UPDATE ATRACCIONES SET  COSTO = ?, TIEMPO = ?, CUPO = ?, TIPO_ATRACCION = ?, WHERE NOMBRE = ?";
+			return updateTablaPromocion(promocion);
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	private int updateTablaPromocion(Promocion promocion) {
+
+		try {
+			String sql = "UPDATE PROMOCIONES SET  TIPO_PROMOCION = ?, TIPO_ATRACCIONES = ?,  DESCRIPCION = ?, VARIABLE = ?, WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 
-			statement.setInt(1, promocion.getCosto());
-			statement.setDouble(2, promocion.getTiempoUtilizado());
-//			statement.setInt(3, promocion.getCupoDisponible());
-			statement.setInt(4, promocion.getTipoAtraccion().getNumeroId());
+			statement.setInt(1, promocion.getTipoPromocionID());
+			statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+			statement.setString(3, promocion.getNombre());
 			statement.setString(5, promocion.getNombre());
+			
+			if(promocion.getTipoPromocionID() == 1) {
+				PromoPorcentual promo = (PromoPorcentual) promocion;
+				statement.setDouble(4, promo.getPorcentajeDescuento());
+			} else if (promocion.getTipoPromocionID() == 2) {
+				PromoAbsoluta promo = (PromoAbsoluta) promocion;
+				statement.setInt(4, promo.getCosto());
+			} else {
+				updateTablaAtraccionesDePromoAXP(promocion);
+			}
 
 			int rows = statement.executeUpdate();
 
@@ -55,11 +74,44 @@ public class PromocinoesDAOImpl implements PromocionesDAO {
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
+
 	}
+	
+	
+	
+	private int updateTablaAtraccionesDePromocion() {
+		
+		return 0;
+	}
+	
+	private int updateTablaAtraccionesDePromoAXP(Promocion promocion ) {
+//		try {
+//			String sql = "UPDATE ATRACCIONES_DE_PROMOS_AXB SET  TIPO_PROMOCION = ?, TIPO_ATRACCIONES = ?,  DESCRIPCION = ?, VARIABLE = ?, WHERE NOMBRE = ?";
+//			Connection conn = ConnectionProvider.getConnection();
+//
+//			PreparedStatement statement = conn.prepareStatement(sql);
+//
+//			statement.setInt(1, promocion.getTipoPromocionID());
+//			statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+//			statement.setString(3, promocion.getNombre());
+//			statement.setInt(4, promocion.getDescripcion());
+//			statement.setString(5, promocion.getNombre());
+//
+//			int rows = statement.executeUpdate();
+//
+//			return rows;
+//		} catch (Exception e) {
+//			throw new MissingDataException(e);
+//		}
+		return 0;
+
+	}
+	
+	
 
 	public int delete(Promocion promocion) {
 		try {
-			String sql = "DELETE FROM ATRACCIONES WHERE NOMBRE = ?";
+			String sql = "DELETE FROM PROMOCIONES WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -74,7 +126,7 @@ public class PromocinoesDAOImpl implements PromocionesDAO {
 
 	public Promocion findByname(String name) {
 		try {
-			String sql = "SELECT * FROM ATRACCIONES WHERE NOMBRE = ?";
+			String sql = "SELECT * FROM PROMOCIONES WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, name);
@@ -94,7 +146,7 @@ public class PromocinoesDAOImpl implements PromocionesDAO {
 
 	public int countAll() {
 		try {
-			String sql = "SELECT COUNT(1) AS TOTAL FROM ATRACCIONES";
+			String sql = "SELECT COUNT(1) AS TOTAL FROM PROMOCIONES";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -118,9 +170,7 @@ public class PromocinoesDAOImpl implements PromocionesDAO {
 
 			List<Promocion> promociones = new LinkedList<Promocion>();
 			while (resultados.next()) {
-
 				promociones.add(toPromocion(resultados));
-
 			}
 
 			return promociones;
@@ -161,6 +211,34 @@ public class PromocinoesDAOImpl implements PromocionesDAO {
 			LinkedList<Atraccion> atraccionesGratis) throws SQLException {
 		return new PromocionAXB(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
 				resultados.getString(5), atracciones, atraccionesGratis);
+	}
+	
+	
+	public LinkedList<Promocion> encontrarPromocionesContratadasPorUsuarios(String nombreUsuario){
+		try {
+			String sql = 
+			
+			"SELECT Promociones.* FROM propuestas_compradas_por_usuarios  "
+			+ "JOIN usuarios ON usuarios.Nombre = propuestas_compradas_por_usuarios.nombre_usuario "
+			+ "JOIN promociones ON promociones.Nombre = propuestas_compradas_por_usuarios.nombre_promocion "
+			+ "WHERE usuarios.nombre = ?";
+			
+			
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombreUsuario);
+			ResultSet resultados = statement.executeQuery();
+
+			LinkedList<Promocion> promociones = new LinkedList<Promocion>();
+			while (resultados.next()) {
+				promociones.add(toPromocion(resultados));
+			}
+
+			return promociones;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+			
 	}
 
 }

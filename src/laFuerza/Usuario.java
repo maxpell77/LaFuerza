@@ -2,6 +2,9 @@ package laFuerza;
 
 import java.util.LinkedList;
 
+import dao.DAOFactory;
+import dao.UserDAO;
+
 public class Usuario {
 	private TipoAtraccion tipoAtraccionPreferida;
 	private int presupuestoInicial;
@@ -9,17 +12,17 @@ public class Usuario {
 	private double tiempoMaximoInicial;
 	private double tiempoDisponible;
 	private String nombre;
-	private LinkedList<Atraccion> atraccionesContratadas = new LinkedList<Atraccion>(); //hace falta, puede set de atracciones, linkedlis es nodo, sino puede ser set (y dice contains), no objeto
 	private LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
 
-	//string, tipoat, int prsu, double tiempo
-	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo) {
+	
+	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo, LinkedList<Propuesta> propuestasCompradas  ) {
 		this.tipoAtraccionPreferida = tipoAtraccionPreferida;
 		this.presupuestoInicial = presupuesto;
 		this.presupuestoDisponible = presupuesto;
 		this.tiempoMaximoInicial = tiempoMaximo;
 		this.tiempoDisponible = tiempoMaximo;
 		this.nombre = nombre;
+		this.propuestasCompradas = propuestasCompradas;
 
 	}
 
@@ -39,9 +42,6 @@ public class Usuario {
 		return nombre;
 	}
 
-	public LinkedList<Atraccion> getAtraccionesContratadas() {
-		return atraccionesContratadas;
-	}
 
 	public LinkedList<Propuesta> getPropuestasContratadas() {
 		return propuestasCompradas;
@@ -59,20 +59,24 @@ public class Usuario {
 		return tiempoDisponible >= propuesta.getTiempoUtilizado();
 	}
 	
-	//reveer esto!
+
+	
 	private boolean atraccionNoContratada(Propuesta propuesta) {
 		boolean atraccionNoInculida = true;
-		for (Atraccion atraccionContratada : atraccionesContratadas) {
-			atraccionNoInculida &= !propuesta.getAtraccionesIncluidas().contains(atraccionContratada);
+		for (Propuesta propuestaContratada : propuestasCompradas) {
+			for(Atraccion atraccionContratada : propuestaContratada.getAtraccionesIncluidas() )		
+				atraccionNoInculida &= !propuesta.getAtraccionesIncluidas().contains(atraccionContratada);
 		}
 		return atraccionNoInculida;
 	}
 
 	public void agregarPropuestaAceptada(Propuesta nuevaPropuesta) {
 		propuestasCompradas.add(nuevaPropuesta);
-		atraccionesContratadas.addAll(nuevaPropuesta.getAtraccionesIncluidas());
 		tiempoDisponible -= nuevaPropuesta.getTiempoUtilizado();
 		presupuestoDisponible -= nuevaPropuesta.getCosto();
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		userDAO.update(this);
+		userDAO.insertPropuestaContratadas(this, nuevaPropuesta);
 	}
 
 	public boolean aceptaPropuesta(Propuesta propuesta) {

@@ -42,14 +42,7 @@ public abstract class CargadorArchivosEntrada {
 
 	}
 
-	private static Atraccion obtenerAtraccionPorNombre(String nombre) {
-		for (Propuesta atraccion : propuestas) {
-			if (atraccion.getNombre().equals(nombre)) {
-				return (Atraccion) atraccion;
-			}
-		}
-		return null;
-	}
+
 
 	public static List<Usuario> getUsuarios() {
 		return usuarios;

@@ -1,4 +1,4 @@
- package laFuerza;
+package laFuerza;
 
 public abstract class VisualizadorMensajesConsola {
 
@@ -18,11 +18,20 @@ public abstract class VisualizadorMensajesConsola {
 		mensaje += "Te sugerimos la siguiente propuesta:\n\n ";
 		mensaje += propuesta + "\n";
 		mensaje += "¿Desea adquirirla?\n";
-		mensaje += "(por favor responder con la letra 'S' en caso afirmativo, o 'N' en caso negativo.)";
+		mensaje += "(por favor responder con la letra 'S' en caso afirmativo,  'N' en caso negativo\n. "
+				+ "Para ver el resumen de lo contratado hasta el momento presione la tecla 'R')";
 		System.out.println(mensaje);
 	}
 
-	public static void mostrarFinlizacionConCompra(Usuario usuario) {
+	public static void mostrarFinalizacionCompra(Usuario usuario) {
+		if (usuario.getPropuestasContratadas().size() > 0)
+			mostrarFinlizacionConCompra(usuario);
+		else
+			mostrarFinlizacionSinCompra(usuario);
+
+	}
+
+	private static void mostrarFinlizacionConCompra(Usuario usuario) {
 		String mensaje = "";
 		mensaje += "Muchas gracias " + usuario.getNombre() + " por tu compra.\n\n";
 		if (usuario.getPresupuestoDisponible() > 0) {
@@ -40,7 +49,7 @@ public abstract class VisualizadorMensajesConsola {
 		saludoFinal(mensaje);
 	}
 
-	public static void mostrarFinlizacionSinCompra(Usuario usuario) {
+	private static void mostrarFinlizacionSinCompra(Usuario usuario) {
 		String mensaje = "";
 		mensaje += "Muchas gracias " + usuario.getNombre() + " por tu participar.\n\n";
 		saludoFinal(mensaje);

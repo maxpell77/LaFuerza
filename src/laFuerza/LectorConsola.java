@@ -14,14 +14,21 @@ public abstract class LectorConsola {
 	}
 
 	
-	//puede ser boolean no string. confirmacion usuario, y un dowhile se usa?
-	public static String esperarRespuestaUsuario() {
+	
+	public static String esperarRespuestaUsuario(Usuario usuario) {
 
-		String entradaConsola = IN.nextLine().toUpperCase(); //codigo repetido
+		String entradaConsola = IN.nextLine().toUpperCase(); 
 		
-		//el while puede no ejecutarse nunca? 
 		while (!entradaConsola.equals("S") && !entradaConsola.equals("N")) {
-			System.out.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
+			if(entradaConsola.equals("R")) {
+				System.out.println(GeneradorResumenComprasUsuario.generarResumen(usuario));
+				System.out.println("Esperando confirmacion de compra (S / N)");
+				
+			} else {
+				System.out.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
+
+			}
+			
 			entradaConsola = IN.nextLine().toUpperCase();
 		}
 		System.err.println(entradaConsola);

@@ -12,7 +12,6 @@ public interface UserDAO extends GenericDAO<Usuario> {
 	
 	public abstract int insertPropuestaContratadas(Usuario user, Propuesta propuesta);
 	
-
 	
 }
 

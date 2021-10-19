@@ -1,4 +1,15 @@
 Conusltas
 Como insertar una lista de atracciones de usuario en bd? for each? el return?
-como actualizar por numero de id? o dejar la tabla id los nombres? 
-para averiguar clase es un objeto esta bie .getclass?
+como actualizar por numero de id? o dejar la tabla id los nombres?  (sino hay que guardar el id en el obj) suponinedo son nombres unicos
+archivo de salida?  una tabla bD usuario y txt?  puede estar precargada con usuarios o desde 0?
+
+(, puede darse el caso de que justo luego de ejecutar el IF EXISTS, otro proceso inserte en la tabla un registro con la misma PK )
+IF EXISTS(SELECT ID FROM TABLA WHERE ID = @ID)
+INSERT INTO TABLA (Campo1,ID) VALUES (@Valor,@ID)
+ELSE
+UPDATE TABLA SET Campo1 = @Valor WHERE ID = @ID
+
+try cach toUser?
+problema con tabla intinerario
+
+https://www.sqlite.org/lang_UPSERT.html para actualizar

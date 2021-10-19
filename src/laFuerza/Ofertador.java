@@ -6,19 +6,15 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public abstract class Ofertador {
-	private static int cantidad_usuarios_compradores = 0; 
-	private static boolean compro_propuesta = false;
 
 	public static void sugerirPropuestasAusuarios(LinkedList<Propuesta> propuestas, List<Usuario> usuarios)
 			throws IOException {
 		LectorConsola.abrirEscanner();
-		
-	
+
 		for (Usuario usuario : usuarios) {
-			compro_propuesta = false;
-			
-		
+
 			List<Propuesta> propuestasOrdenadas = ordenarPropuestas(propuestas, usuario.getTipoAtraccionPreferida());
 			VisualizadorMensajesConsola.mostrarBienvenida(usuario);
 
@@ -32,17 +28,16 @@ public abstract class Ofertador {
 					}
 				}
 			}
-			finalizaOfertadorAUsuario(usuario);
+			VisualizadorMensajesConsola.mostrarFinalizacionCompra(usuario);
 
 		}
 		LectorConsola.cerrarEscanner();
-		GeneradorResumenSistema.generarResuemSistema(propuestas, cantidad_usuarios_compradores);
 	}
 
 	private static List<Propuesta> ordenarPropuestas(LinkedList<Propuesta> propuestas, TipoAtraccion tipoAtraccion) {
-		//ordenar una sola vez y despues filtrar por gusto, se pasa 2 veces primero
-		//los que le gusta y despues lo sque no, asi no se ordena tantas veces.
-		
+		// ordenar una sola vez y despues filtrar por gusto, se pasa 2 veces primero
+		// los que le gusta y despues lo sque no, asi no se ordena tantas veces.
+
 		List<Propuesta> propuestasFiltradas = new ArrayList<Propuesta>();
 		List<Propuesta> restoPropuestas = new ArrayList<Propuesta>();
 
@@ -66,26 +61,12 @@ public abstract class Ofertador {
 		usuario.agregarPropuestaAceptada(propuesta);
 		propuesta.actualizarCupoDisponible();
 		propuesta.actualizarCompraPropuesta();
-		compro_propuesta = true;
+
 	}
 
 	private static void propuestaRechazada(Propuesta propuesta) {
 		VisualizadorMensajesConsola.confirmaRechazoPropuesta(propuesta);
 		propuesta.actualizarRechazoPropuesta();
-	}
-
-	private static void finalizaOfertadorAUsuario(Usuario usuario) throws IOException {
-		String file = "salida/intinerarios_Usuarios/" + usuario.getNombre() + ".txt";
-		String intinerario = GeneradorIntinerarioUsuario.generarIntinerario(usuario);
-		EscritorArchivosSalida.escribirArchivos(file, intinerario);
-
-		if (compro_propuesta) {
-			cantidad_usuarios_compradores++;
-			VisualizadorMensajesConsola.mostrarFinlizacionConCompra(usuario);
-		} else {
-			VisualizadorMensajesConsola.mostrarFinlizacionSinCompra(usuario);
-		}
-
 	}
 
 }

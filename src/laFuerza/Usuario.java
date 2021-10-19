@@ -7,22 +7,20 @@ import dao.UserDAO;
 
 public class Usuario {
 	private TipoAtraccion tipoAtraccionPreferida;
-	private int presupuestoInicial;
 	private int presupuestoDisponible;
-	private double tiempoMaximoInicial;
 	private double tiempoDisponible;
 	private String nombre;
+	private int usuario_id;
 	private LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
 
 	
-	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo, LinkedList<Propuesta> propuestasCompradas  ) {
+	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo, LinkedList<Propuesta> propuestasCompradas, int  usuario_id ) {
 		this.tipoAtraccionPreferida = tipoAtraccionPreferida;
-		this.presupuestoInicial = presupuesto;
 		this.presupuestoDisponible = presupuesto;
-		this.tiempoMaximoInicial = tiempoMaximo;
 		this.tiempoDisponible = tiempoMaximo;
 		this.nombre = nombre;
 		this.propuestasCompradas = propuestasCompradas;
+		this.usuario_id = usuario_id;
 
 	}
 
@@ -80,16 +78,14 @@ public class Usuario {
 	}
 
 	public boolean aceptaPropuesta(Propuesta propuesta) {
+
 	 
-		return LectorConsola.esperarRespuestaUsuario().equals("S");
+		return LectorConsola.esperarRespuestaUsuario(this).equals("S");
 	}
 
-	public int getPresupuestoInicial() {
-		return presupuestoInicial;
-	}
 
-	public double getTiempoMaximoInicial() {
-		return tiempoMaximoInicial;
+	public int getUsuario_id() {
+		return usuario_id;
 	}
 
 }

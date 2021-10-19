@@ -7,8 +7,8 @@ public class PromocionAXB extends Promocion {
 	private LinkedList<Atraccion> atraccionesGratis = new LinkedList<Atraccion>();
 
 	public PromocionAXB(TipoAtraccion tipoAtraccion, String titulo, String descrpicion,
-			LinkedList<Atraccion> atraccionesIncluidas, LinkedList<Atraccion> atraccionesGratis) {
-		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas);
+			LinkedList<Atraccion> atraccionesIncluidas, LinkedList<Atraccion> atraccionesGratis, int id_promocion) {
+		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas, id_promocion);
 		this.atraccionesGratis = atraccionesGratis;
 	}
 

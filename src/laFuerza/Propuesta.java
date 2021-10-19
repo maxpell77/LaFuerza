@@ -12,6 +12,13 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 	protected boolean hayCupoDisponible = true;
 	protected int cantidadCompraPropuesta = 0;
 	protected int cantidadRechazoPropuesta = 0;
+	protected int propuestaID;
+	
+	
+	public Propuesta (int propuestaID) {
+		this.propuestaID =  propuestaID;
+		
+	}
 
 	public int getCosto() {
 		return costo;
@@ -47,6 +54,10 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 
 	public int getCantidadRechazada() {
 		return cantidadRechazoPropuesta;
+	}
+	
+	public int getPropuestaId() {
+		return propuestaID;
 	}
 
 	@Override

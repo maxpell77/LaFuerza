@@ -125,7 +125,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 
 
 	private Atraccion toAtraccion(ResultSet resultados) throws SQLException {
-		return new Atraccion(resultados.getInt(3), resultados.getDouble(4),  TipoAtraccion.valueOf(resultados.getInt(6) ) ,resultados.getInt(5), resultados.getString(2) );
+		return new Atraccion(resultados.getInt(3), resultados.getDouble(4),  TipoAtraccion.valueOf(resultados.getInt(6) ) ,resultados.getInt(5), resultados.getString(2), resultados.getInt(1) );
 	}
 
 
@@ -184,19 +184,19 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 	}
 	
 	
-	public LinkedList<Atraccion> encontraAtraccionesContratadasPorUsuarios(String nombreUsuario){
+	public LinkedList<Atraccion> encontraAtraccionesContratadasPorUsuarios(int idUsuario){
 		try {
 			String sql = 
 			
 			"SELECT ATRACCIONES.* FROM propuestas_compradas_por_usuarios "
-			+ "JOIN usuarios ON usuarios.nombre = propuestas_compradas_por_usuarios.nombre_usuario "
-			+ "JOIN atracciones ON atracciones.nombre = propuestas_compradas_por_usuarios.nombre_atraccion "
-			+ "WHERE usuarios.nombre = ?";
+			+ "JOIN usuarios ON usuarios.id = propuestas_compradas_por_usuarios.id_usuario "
+			+ "JOIN atracciones ON atracciones.id = propuestas_compradas_por_usuarios.id_atraccion "
+			+ "WHERE usuarios.id = ?";
 			
 			
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, nombreUsuario);
+			statement.setInt(1, idUsuario);
 			ResultSet resultados = statement.executeQuery();
 
 			LinkedList<Atraccion> atracciones = new LinkedList<Atraccion>();

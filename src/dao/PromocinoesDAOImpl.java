@@ -199,34 +199,34 @@ public class PromocinoesDAOImpl implements PromocionesDAO {
 	private PromoPorcentual toPromoPorcentual(ResultSet resultados, LinkedList<Atraccion> atracciones)
 			throws SQLException {
 		return new PromoPorcentual(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
-				resultados.getString(5), atracciones, resultados.getDouble(6));
+				resultados.getString(5), atracciones, resultados.getDouble(6), resultados.getInt(1));
 	}
 
 	private PromoAbsoluta toPromoAbsoluta(ResultSet resultados, LinkedList<Atraccion> atracciones) throws SQLException {
 		return new PromoAbsoluta(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
-				resultados.getString(5), atracciones, resultados.getInt(6));
+				resultados.getString(5), atracciones, resultados.getInt(6), resultados.getInt(1));
 	}
 
 	private PromocionAXB toPromoAXB(ResultSet resultados, LinkedList<Atraccion> atracciones,
 			LinkedList<Atraccion> atraccionesGratis) throws SQLException {
 		return new PromocionAXB(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
-				resultados.getString(5), atracciones, atraccionesGratis);
+				resultados.getString(5), atracciones, atraccionesGratis, resultados.getInt(1));
 	}
 	
 	
-	public LinkedList<Promocion> encontrarPromocionesContratadasPorUsuarios(String nombreUsuario){
+	public LinkedList<Promocion> encontrarPromocionesContratadasPorUsuarios(int idUsuario){
 		try {
 			String sql = 
 			
 			"SELECT Promociones.* FROM propuestas_compradas_por_usuarios  "
-			+ "JOIN usuarios ON usuarios.Nombre = propuestas_compradas_por_usuarios.nombre_usuario "
-			+ "JOIN promociones ON promociones.Nombre = propuestas_compradas_por_usuarios.nombre_promocion "
-			+ "WHERE usuarios.nombre = ?";
+			+ "JOIN usuarios ON usuarios.id = propuestas_compradas_por_usuarios.id_usuario "
+			+ "JOIN promociones ON promociones.id = propuestas_compradas_por_usuarios.id_promocion "
+			+ "WHERE usuarios.id = ?";
 			
 			
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, nombreUsuario);
+			statement.setInt(1, idUsuario);
 			ResultSet resultados = statement.executeQuery();
 
 			LinkedList<Promocion> promociones = new LinkedList<Promocion>();

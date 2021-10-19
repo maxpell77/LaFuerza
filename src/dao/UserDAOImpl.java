@@ -14,7 +14,6 @@ import laFuerza.Propuesta;
 import laFuerza.TipoAtraccion;
 import laFuerza.Usuario;
 
-
 public class UserDAOImpl implements UserDAO {
 
 	public int insert(Usuario user) {
@@ -27,7 +26,7 @@ public class UserDAOImpl implements UserDAO {
 			statement.setInt(2, user.getTipoAtraccionPreferida().getNumeroId());
 			statement.setInt(3, user.getPresupuestoDisponible());
 			statement.setDouble(4, user.getTiempoDisponible());
-;
+			;
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -54,25 +53,23 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
-	
-	
-	
+
 	public int insertPropuestaContratadas(Usuario user, Propuesta propuesta) {
-		
+
 		try {
-			String sql = "INSERT INTO PROPUESTAS_COMPRADAS_POR_USUARIOS (NOMBRE_USUARIO, NOMBRE_PROMOCION, NOMBRE_ATRACCION) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO PROPUESTAS_COMPRADAS_POR_USUARIOS (ID_USUARIO, ID_PROMOCION, ID_ATRACCION) VALUES (?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			
-			statement.setString(1, user.getNombre());
-			
-			if(propuesta.getClass() == Atraccion.class ) {
-				statement.setString(3, propuesta.getNombre());
-				
+
+			statement.setInt(1, user.getUsuario_id());
+
+			if (propuesta.getClass() == Atraccion.class) {
+				statement.setInt(3, propuesta.getPropuestaId());
+
 			} else {
-				statement.setString(2, propuesta.getNombre());
-				
+				statement.setInt(2, propuesta.getPropuestaId());
+
 			}
 
 			int rows = statement.executeUpdate();
@@ -81,12 +78,8 @@ public class UserDAOImpl implements UserDAO {
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
-		
-		
-		
+
 	}
-	
-	
 
 	public int delete(Usuario user) {
 		try {
@@ -148,7 +141,7 @@ public class UserDAOImpl implements UserDAO {
 
 			List<Usuario> usuarios = new LinkedList<Usuario>();
 			while (resultados.next()) {
-				
+
 				usuarios.add(toUser(resultados));
 			}
 
@@ -157,23 +150,30 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
-	
 
-	private Usuario toUser(ResultSet resultados) throws SQLException {
-		AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
-		LinkedList<Atraccion> atracciones = atraccionesDAO.encontraAtraccionesContratadasPorUsuarios(resultados.getString(2));
-		
-		PromocionesDAO promocionesDAO = DAOFactory.getPromocinoesDAO();
-		LinkedList<Promocion> promociones = promocionesDAO.encontrarPromocionesContratadasPorUsuarios(resultados.getString(2));
-		
-		LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
-		propuestasCompradas.addAll(atracciones);
-		propuestasCompradas.addAll(promociones);
-		
-		return new Usuario(resultados.getString(2), TipoAtraccion.valueOf(resultados.getInt(3) ) ,resultados.getInt(4), resultados.getDouble(5), propuestasCompradas);
+	private Usuario toUser(ResultSet resultados) {
+
+		try {
+			AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
+			LinkedList<Atraccion> atracciones = atraccionesDAO
+					.encontraAtraccionesContratadasPorUsuarios(resultados.getInt(1));
+
+			PromocionesDAO promocionesDAO = DAOFactory.getPromocinoesDAO();
+			LinkedList<Promocion> promociones = promocionesDAO
+					.encontrarPromocionesContratadasPorUsuarios(resultados.getInt(1));
+
+			LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
+			propuestasCompradas.addAll(atracciones);
+			propuestasCompradas.addAll(promociones);
+
+			return new Usuario(resultados.getString(2), TipoAtraccion.valueOf(resultados.getInt(3)),
+					resultados.getInt(4), resultados.getDouble(5), propuestasCompradas, resultados.getInt(1));
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+
 	}
-	
-	
 
+	
 
 }

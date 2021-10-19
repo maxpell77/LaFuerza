@@ -9,6 +9,6 @@ public interface PromocionesDAO extends GenericDAO<Promocion> {
 	
 	public abstract Promocion findByname(String name);
 	
-	public abstract LinkedList<Promocion> encontrarPromocionesContratadasPorUsuarios(String idUsuario);
+	public abstract LinkedList<Promocion> encontrarPromocionesContratadasPorUsuarios(int idUsuario);
 
 }

@@ -6,13 +6,16 @@ public abstract class Promocion extends Propuesta {
 	protected int tipo_promocion_id; 
 	protected String descrpicion;
 	protected LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
+	
 
 	public Promocion(TipoAtraccion tipoAtraccion, String titulo, String descrpicion,
-			LinkedList<Atraccion> atraccionesIncluidas) {
+			LinkedList<Atraccion> atraccionesIncluidas, int id_promocion) {
+		super(id_promocion);
 		this.tipoAtraccion = tipoAtraccion;
 		this.nombre = titulo;
 		this.descrpicion = descrpicion;
 		this.atraccionesIncluidas = atraccionesIncluidas;
+
 	}
 
 	public LinkedList<Atraccion> getAtraccionesIncluidas() {
@@ -22,6 +25,8 @@ public abstract class Promocion extends Propuesta {
 	public String getDescripcion() {
 		return this.descrpicion;
 	}
+	
+
 	
 
 	@Override

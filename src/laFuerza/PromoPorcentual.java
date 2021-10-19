@@ -7,8 +7,8 @@ public class PromoPorcentual extends Promocion {
 	private double porcentajeDescuento;
 
 	public PromoPorcentual(TipoAtraccion tipoAtraccion, String titulo, String descrpicion,
-			LinkedList<Atraccion> atraccionesIncluidas, double porcentajeDescuento) {
-		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas);
+			LinkedList<Atraccion> atraccionesIncluidas, double porcentajeDescuento, int id_promocion) {
+		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas, id_promocion);
 		this.porcentajeDescuento = porcentajeDescuento;
 	}
 

@@ -9,14 +9,17 @@ public class Atraccion extends Propuesta {
 
 	private int cupoDisponible;
 	private int cupoInicial;
+	private int id_atraccion;
 
-	public Atraccion(int costo, double duracion, TipoAtraccion tipoAtraccion, int cupoMaximo, String nombre) {
+	public Atraccion(int costo, double duracion, TipoAtraccion tipoAtraccion, int cupoMaximo, String nombre, int id_atraccion) {
+		super(id_atraccion);
 		this.costo = costo;
 		this.tiempoTotal = duracion;
 		this.tipoAtraccion = tipoAtraccion;
 		this.cupoDisponible = cupoMaximo;
 		this.cupoInicial = cupoMaximo;
 		this.nombre = nombre;
+		this.id_atraccion = id_atraccion;
 	}
 
 	@Override
@@ -54,6 +57,10 @@ public class Atraccion extends Propuesta {
 
 	public int getCupoInicial() {
 		return cupoInicial;
+	}
+
+	public int getId_atraccion() {
+		return id_atraccion;
 	}
 
 }

@@ -16,34 +16,34 @@ public class UsuarioTest {
 	LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 	Promocion prC150T15;
 
-//	@Before
-//	public void setUp() {
-//		// C=costo , T=tiempo
-//		atC100T10 = new Atraccion(100, 10, TipoAtraccion.LADO_OSCURO, 100, "at1");
-//		atC150T5 = new Atraccion(150, 5, TipoAtraccion.LADO_OSCURO, 100, "at2");
-//		usC300T30 = new Usuario("u1", TipoAtraccion.LADO_OSCURO, 300, 30);
-//		usC10T30 = new Usuario("u2", TipoAtraccion.LADO_OSCURO, 10, 30);
-//		usC200T1 = new Usuario("u3", TipoAtraccion.LADO_OSCURO, 200, 1);
-//		atraccionesIncluidas.add(atC100T10);
-//		atraccionesIncluidas.add(atC150T5);
-//		prC150T15 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "promo1", "descripcion", atraccionesIncluidas, 150);
-//		prC150T15.setCosto();
-//		prC150T15.setTiempoUtilizado();
-//	}
+	@Before
+	public void setUp() {
+		// C=costo , T=tiempo
+		atC100T10 = new Atraccion(100, 10, TipoAtraccion.LADO_OSCURO, 100, "at1", 1);
+		atC150T5 = new Atraccion(150, 5, TipoAtraccion.LADO_OSCURO, 100, "at2", 2);
+		LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
+		usC300T30 = new Usuario("u1", TipoAtraccion.LADO_OSCURO, 300, 30, propuestasCompradas, 3);
+		usC10T30 = new Usuario("u2", TipoAtraccion.LADO_OSCURO, 10, 30, propuestasCompradas, 4);
+		usC200T1 = new Usuario("u3", TipoAtraccion.LADO_OSCURO, 200, 1, propuestasCompradas,  5);
+		atraccionesIncluidas.add(atC100T10);
+		atraccionesIncluidas.add(atC150T5);
+		prC150T15 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "promo1", "descripcion", atraccionesIncluidas, 150, 1);
+
+	}
 
 	@Test
 	public void usuarioPuedeAdquirirAtraccionTest() {
 		assertTrue(usC300T30.puedeAdquirirPropuesta(atC100T10));
 	}
 
-//	@Test
-//	public void usuarioAdquiereAtraccionTest() {
-//		usC300T30.agregarPropuestaAceptada(atC100T10);
-//		assertEquals(200, usC300T30.getPresupuestoDisponible());
-//		assertEquals(20, usC300T30.getTiempoDisponible(), 0);
-//		String atraccionContratada = usC300T30.getAtraccionesContratadas().getFirst().getNombre();
-//		assertEquals("at1", atraccionContratada);
-//	}
+	@Test
+	public void usuarioAdquiereAtraccionTest() {
+		usC300T30.agregarPropuestaAceptada(atC100T10);
+		assertEquals(200, usC300T30.getPresupuestoDisponible());
+		assertEquals(20, usC300T30.getTiempoDisponible(), 0);
+		String atraccionContratada = usC300T30.getPropuestasContratadas().getFirst().getNombre();
+		assertEquals("at1", atraccionContratada);
+	}
 
 	@Test
 	public void usuarioNoPuedeAdquirirAtraccionPorPresupuestoTest() {

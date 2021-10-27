@@ -10,35 +10,48 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+
+
 public class OfertadorTest {
 
-	List<String> atracciones = new LinkedList<String>();
-	List<String> promociones = new LinkedList<String>();
+	List<Propuesta> propuestas = new LinkedList<Propuesta>();
 
-//	@Before
-//	public void setUp() {
-//		atracciones.add("AtTest1,40,10,2,LADO_OSCURO");// nombre, costo, tiempo, cupo, tipoAtraccion
-//		atracciones.add("AtTest2,60,20,4,LADO_OSCURO");
-//		atracciones.add("AtTest3,50,30,2,LADO_OSCURO");
-//		atracciones.add("AtTest4,20,40,2,LADO_LUMINOSO");
-//		atracciones.add("AtTest5,30,50,3,LADO_LUMINOSO");
-//		atracciones.add("AtTest6,40,60,3,LADO_LUMINOSO");
-//		// costo 50
-//		promociones.add(
-//				"PORCENTUAL,  LADO_OSCURO ,Pack Oscuro 1 , AtTest1 y AtTest2 con 50%dto,       0.50 ,   AtTest1;AtTest2");
-//		// costo 20
-//		promociones.add(
-//				"ABSOLUTA,    LADO_LUMINOSO, Pack Luminoso 1,  AtTest4 y la AtTest5 a 20 monedas., 20,      AtTest4;AtTest5");
-//		// costo 100
-//		promociones.add(
-//				"AXB,         LADO_OSCURO, Pack Oscuro 2,  AtTest1 y AtTest2 AtTest3 gratis ., AtTest3, AtTest1;AtTest2;AtTest3");
-//		CargadorArchivosEntrada.agregarAtracciones(atracciones);// 6 atracciones en setUp
-//		CargadorArchivosEntrada.agregarPromociones(promociones); // 3 promocinoes en setUp
-//
-//	}
+	@Before
+	public void setUp() {
+		Atraccion testA1 = new Atraccion(40, 10, TipoAtraccion.LADO_OSCURO, 10, "AtTest1", 1);
+		propuestas.add(testA1);
+		Atraccion testA2 = new Atraccion(60, 20, TipoAtraccion.LADO_OSCURO, 10, "AtTest2", 2);
+		propuestas.add(testA2);
+		Atraccion testA3 = new Atraccion(50, 30, TipoAtraccion.LADO_OSCURO, 10, "AtTest3", 3);
+		propuestas.add(testA3);
+		Atraccion testA4 = new Atraccion(20, 40, TipoAtraccion.LADO_LUMINOSO, 10, "AtTest4", 4);
+		propuestas.add(testA4);
+		Atraccion testA5 = new Atraccion(30, 50, TipoAtraccion.LADO_LUMINOSO, 10, "AtTest5", 5);
+		propuestas.add(testA5);
+		Atraccion testA6 = new Atraccion(40, 60, TipoAtraccion.LADO_LUMINOSO, 10, "AtTest6", 6);
+		propuestas.add(testA6);
+
+		LinkedList<Atraccion> atraccionesIncludias = new LinkedList<Atraccion>();
+		atraccionesIncludias.add(testA1);
+
+		//costo100	
+		Promocion promo1 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "Pack Oscuro 1", "descripcion", atraccionesIncludias, 100, 7);
+		propuestas.add(promo1);
+		
+		//costo 50000
+		Promocion promo2 = new PromoAbsoluta(TipoAtraccion.LADO_LUMINOSO, "Pack Luminoso 1", "descripcion", atraccionesIncludias, 100, 7);
+		propuestas.add(promo2);
+		
+		
+		//costo1000
+		Promocion promo3 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "Pack Oscuro 2", "descripcion", atraccionesIncludias, 1000, 7);
+		propuestas.add(promo3);
+	
+
+	}
 
 	@Test
-	public void ordenarPropuestasTest() {
+	public void ordenarPropuestasTest2() {
 		List<Propuesta> propuestasFiltradas = new ArrayList<Propuesta>();
 		propuestasFiltradas = separarPropuestas(TipoAtraccion.LADO_OSCURO);
 		Collections.sort(propuestasFiltradas);
@@ -52,9 +65,11 @@ public class OfertadorTest {
 		}
 	}
 
+
+
 	private List<Propuesta> separarPropuestas(TipoAtraccion tipoAtraccion) {
 		List<Propuesta> propuestaFiltrada = new ArrayList<Propuesta>();
-		for (Propuesta propuesta : CargadorArchivosEntrada.getPropuestas()) {
+		for (Propuesta propuesta : this.propuestas) {
 			if (propuesta.getTipoAtraccion() == tipoAtraccion) {
 				propuestaFiltrada.add(propuesta);
 			}

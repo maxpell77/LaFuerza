@@ -4,7 +4,7 @@ public abstract class VisualizadorMensajesConsola {
 
 	public static void mostrarBienvenida(Usuario usuario) {
 		String mensaje = "";
-		mensaje += "---------------------------------------------------\n\n";
+		mensaje += "-----------------------------------------------------------------------------\n\n";
 		mensaje += "¡Bienvenid@ " + usuario.getNombre() + "!\n\n";
 		mensaje += "Tu preferencia es el " + usuario.getTipoAtraccionPreferida().getNombre();
 		System.out.println(mensaje);
@@ -18,7 +18,7 @@ public abstract class VisualizadorMensajesConsola {
 		mensaje += "Te sugerimos la siguiente propuesta:\n\n ";
 		mensaje += propuesta + "\n";
 		mensaje += "¿Desea adquirirla?\n";
-		mensaje += "(por favor responder con la letra 'S' en caso afirmativo,  'N' en caso negativo\n. "
+		mensaje += "(por favor responder con la letra 'S' en caso afirmativo, 'N' en caso negativo.\n "
 				+ "Para ver el resumen de lo contratado hasta el momento presione la tecla 'R')";
 		System.out.println(mensaje);
 	}

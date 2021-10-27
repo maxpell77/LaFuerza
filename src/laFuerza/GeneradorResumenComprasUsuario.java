@@ -9,10 +9,10 @@ public abstract class GeneradorResumenComprasUsuario {
 
 
 		if (usuario.getPropuestasContratadas().size() == 0) {
-			mensaje += "----------------------------------------------------------------\n\n";
+			mensaje += "-----------------------------------------------------------------------------\n\n";
 			mensaje += usuario.getNombre() +" no has adquirido ninguna propuesta.\n\n";
 		} else {
-			mensaje += "----------------------------------------------------------------\n\n";
+			mensaje += "-----------------------------------------------------------------------------\n\n";
 			mensaje += usuario.getNombre()+" estas son las propuestas contratadas: \n\n";
 
 			for (Propuesta propuesta : usuario.getPropuestasContratadas()) {
@@ -31,7 +31,7 @@ public abstract class GeneradorResumenComprasUsuario {
 
 		}
 
-		mensaje += "----------------------------------------------------------------\n";
+		mensaje += "-----------------------------------------------------------------------------\n";
 		
 		return mensaje;
 

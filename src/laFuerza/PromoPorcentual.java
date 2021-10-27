@@ -10,13 +10,13 @@ public class PromoPorcentual extends Promocion {
 			LinkedList<Atraccion> atraccionesIncluidas, double porcentajeDescuento, int id_promocion) {
 		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas, id_promocion);
 		this.porcentajeDescuento = porcentajeDescuento;
+		this.costo = (int) Math.round(getCostoTotalAtracciones(atraccionesIncluidas) * (1 - this.porcentajeDescuento));
 	}
 
-	@Override
 	public void setCosto() {
 		costo = (int) Math.round(getCostoTotalAtracciones(atraccionesIncluidas) * (1 - this.porcentajeDescuento));
 	}
-	
+
 	public double getPorcentajeDescuento() {
 		return porcentajeDescuento;
 	}

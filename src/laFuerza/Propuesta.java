@@ -10,14 +10,11 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 	protected double tiempoTotal;
 	protected String nombre;
 	protected boolean hayCupoDisponible = true;
-	protected int cantidadCompraPropuesta = 0;
-	protected int cantidadRechazoPropuesta = 0;
 	protected int propuestaID;
-	
-	
-	public Propuesta (int propuestaID) {
-		this.propuestaID =  propuestaID;
-		
+
+	public Propuesta(int propuestaID) {
+		this.propuestaID = propuestaID;
+
 	}
 
 	public int getCosto() {
@@ -40,22 +37,6 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 		return hayCupoDisponible;
 	}
 
-	public void actualizarCompraPropuesta() {
-		cantidadCompraPropuesta++;
-	}
-
-	public void actualizarRechazoPropuesta() {
-		cantidadRechazoPropuesta++;
-	}
-
-	public int getCantidadComprada() {
-		return cantidadCompraPropuesta;
-	}
-
-	public int getCantidadRechazada() {
-		return cantidadRechazoPropuesta;
-	}
-	
 	public int getPropuestaId() {
 		return propuestaID;
 	}
@@ -75,8 +56,6 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 		else {
 			c = o.getCosto() - this.getCosto();
 			if (c == 0) {
-//				double tiempoDif = o.getTiempoUtilizado() - this.getTiempoUtilizado();
-//				c = tiempoDif > 0 ? 1 : (tiempoDif < 0 ? -1 : 0);
 				c = Double.compare(o.getTiempoUtilizado(), this.getTiempoUtilizado());
 			}
 		}
@@ -105,7 +84,5 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 	public abstract LinkedList<Atraccion> getAtraccionesIncluidas();
 
 	public abstract String toString();
-	
-	
 
 }

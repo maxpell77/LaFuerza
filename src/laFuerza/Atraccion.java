@@ -21,6 +21,7 @@ public class Atraccion extends Propuesta {
 		this.nombre = nombre;
 		this.id_atraccion = id_atraccion;
 	}
+	
 
 	@Override
 	public void actualizarCupoDisponible() {
@@ -61,6 +62,10 @@ public class Atraccion extends Propuesta {
 
 	public int getId_atraccion() {
 		return id_atraccion;
+	}
+	
+	public int setId_atraccion(int id) {
+		return id_atraccion = id;
 	}
 
 }

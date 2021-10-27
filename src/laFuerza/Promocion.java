@@ -3,10 +3,9 @@ package laFuerza;
 import java.util.LinkedList;
 
 public abstract class Promocion extends Propuesta {
-	protected int tipo_promocion_id; 
+	protected int tipo_promocion_id;
 	protected String descrpicion;
 	protected LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
-	
 
 	public Promocion(TipoAtraccion tipoAtraccion, String titulo, String descrpicion,
 			LinkedList<Atraccion> atraccionesIncluidas, int id_promocion) {
@@ -15,6 +14,7 @@ public abstract class Promocion extends Propuesta {
 		this.nombre = titulo;
 		this.descrpicion = descrpicion;
 		this.atraccionesIncluidas = atraccionesIncluidas;
+		this.tiempoTotal = tiempoUtilizado();
 
 	}
 
@@ -25,9 +25,6 @@ public abstract class Promocion extends Propuesta {
 	public String getDescripcion() {
 		return this.descrpicion;
 	}
-	
-
-	
 
 	@Override
 	public String toString() {
@@ -40,15 +37,14 @@ public abstract class Promocion extends Propuesta {
 		return toString;
 	}
 
-	public void setTiempoUtilizado() {
+	private double tiempoUtilizado() {
+		double tiempoTotal = 0;
 		for (Atraccion atraccion : atraccionesIncluidas) {
-			this.tiempoTotal += atraccion.getTiempoUtilizado();
+			tiempoTotal += atraccion.getTiempoUtilizado();
 		}
+		return tiempoTotal;
 	}
 
-	public abstract void setCosto();
-	
-	
 	public int getTipoPromocionID() {
 		return tipo_promocion_id;
 	}

@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-
 public abstract class Ofertador {
 
 	public static void sugerirPropuestasAusuarios(LinkedList<Propuesta> propuestas, List<Usuario> usuarios)
@@ -29,14 +28,11 @@ public abstract class Ofertador {
 				}
 			}
 			VisualizadorMensajesConsola.mostrarFinalizacionCompra(usuario);
-
 		}
 		LectorConsola.cerrarEscanner();
 	}
 
 	private static List<Propuesta> ordenarPropuestas(LinkedList<Propuesta> propuestas, TipoAtraccion tipoAtraccion) {
-		// ordenar una sola vez y despues filtrar por gusto, se pasa 2 veces primero
-		// los que le gusta y despues lo sque no, asi no se ordena tantas veces.
 
 		List<Propuesta> propuestasFiltradas = new ArrayList<Propuesta>();
 		List<Propuesta> restoPropuestas = new ArrayList<Propuesta>();
@@ -60,13 +56,12 @@ public abstract class Ofertador {
 		VisualizadorMensajesConsola.confirmaCompraPropuesta(propuesta);
 		usuario.agregarPropuestaAceptada(propuesta);
 		propuesta.actualizarCupoDisponible();
-		propuesta.actualizarCompraPropuesta();
 
 	}
 
 	private static void propuestaRechazada(Propuesta propuesta) {
 		VisualizadorMensajesConsola.confirmaRechazoPropuesta(propuesta);
-		propuesta.actualizarRechazoPropuesta();
+
 	}
 
 }

@@ -3,7 +3,7 @@ package laFuerza;
 import java.util.LinkedList;
 
 import dao.DAOFactory;
-import dao.UserDAO;
+import dao.UsuariosDAO;
 
 public class Usuario {
 	private TipoAtraccion tipoAtraccionPreferida;
@@ -72,7 +72,7 @@ public class Usuario {
 		propuestasCompradas.add(nuevaPropuesta);
 		tiempoDisponible -= nuevaPropuesta.getTiempoUtilizado();
 		presupuestoDisponible -= nuevaPropuesta.getCosto();
-		UserDAO userDAO = DAOFactory.getUserDAO();
+		UsuariosDAO userDAO = DAOFactory.getUserDAO();
 		userDAO.update(this);
 		userDAO.insertPropuestaContratadas(this, nuevaPropuesta);
 	}

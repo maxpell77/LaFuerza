@@ -10,14 +10,14 @@ public class PromocionAXB extends Promocion {
 			LinkedList<Atraccion> atraccionesIncluidas, LinkedList<Atraccion> atraccionesGratis, int id_promocion) {
 		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas, id_promocion);
 		this.atraccionesGratis = atraccionesGratis;
+		this.costo = obtenerCosto();
 	}
 
-	@Override
-	public void setCosto() {
-		costo = getCostoTotalAtracciones(atraccionesIncluidas) - getCostoTotalAtracciones(atraccionesGratis);
+	private int obtenerCosto() {
+		return getCostoTotalAtracciones(atraccionesIncluidas) - getCostoTotalAtracciones(atraccionesGratis);
 	}
 
-	public LinkedList<Atraccion> getAtraccionesGratis(){
+	public LinkedList<Atraccion> getAtraccionesGratis() {
 		return atraccionesGratis;
 	}
 

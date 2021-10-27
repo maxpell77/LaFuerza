@@ -2,8 +2,8 @@ package dao;
 
 public class DAOFactory {
 	
-	public static UserDAO getUserDAO() {
-		return new UserDAOImpl();
+	public static UsuariosDAO getUserDAO() {
+		return new UsuariosDAOImpl();
 	}
 	
 	public static AtraccionesDAO getAtraccionesDAO() {
